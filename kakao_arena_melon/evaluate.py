@@ -59,6 +59,8 @@ class ArenaEvaluator:
 
         music_ndcg = music_ndcg / len(rec_playlists)
         tag_ndcg = tag_ndcg / len(rec_playlists)
+
+        # score: music_ndcg 85% + tag_ndcg 15%
         score = music_ndcg * 0.85 + tag_ndcg * 0.15
 
         return music_ndcg, tag_ndcg, score

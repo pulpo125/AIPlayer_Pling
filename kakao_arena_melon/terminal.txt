@@ -1,0 +1,5 @@
+python split_data.py run res/train.json
+
+#root 기준 >> C:\ROOT_final\final_project
+
+python kakao_arena_melon/evaluate.py evaluate --gt_fname=../정답 파일 경로 --rec_fname=../결과 파일 경로

@@ -1,3 +1,0 @@
-#root 기준 >> C:\ROOT_final\final_project\kakao_arena_melon>
-python evaluate.py evaluate --gt_fname=../정답 파일 경로 --rec_fname=../결과 파일 경로
-python evaluate.py evaluate --gt_fname=../autoencoder_total/denoise_answers.json 파일 경로 --rec_fname=../autoencoder_total/denoise_results.json

@@ -5,3 +5,5 @@ python split_data.py run res/train.json
 python kakao_arena_melon/evaluate.py evaluate --gt_fname=../정답 파일 경로 --rec_fname=../결과 파일 경로
 
 python kakao_arena_melon/evaluate.py evaluate --gt_fname=kakao_arena_melon/arena_data/answers/val.json --rec_fname=autoencoder_basic/results.json
+
+python kakao_arena_melon/evaluate.py evaluate --gt_fname=kakao_arena_melon/arena_data/answers/val.json --rec_fname=autoencoder_basic/results2.json

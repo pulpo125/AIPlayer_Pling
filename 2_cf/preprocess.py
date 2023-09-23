@@ -74,7 +74,7 @@ if not(os.path.isdir('data/')):
 
 train = load_json('../kakao_arena_melon/res/train.json')
 val = load_json('../kakao_arena_melon/res/val.json')
-test = load_json('../kakao_arena_melon/res/test.json')
+test = load_json('../kakao_arena_melon/arena_data/questions/val.json')
 train = train + val + test
 
 print('rank popular songs/tags...')

@@ -45,9 +45,9 @@ input.start-btn {
     width: 320px;
     height: 100px;
     margin: 0 auto;
-    /* position: relative;
+    position: relative;
     top: -9px;
-    left: -280px; */
+    left: -280px;
 }
 
 .howtouse {

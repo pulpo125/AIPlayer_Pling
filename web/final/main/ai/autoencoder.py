@@ -61,12 +61,12 @@ def recommendation(onehot, features, song_len, song_num, tag_num) :
     # autoencoder = tf.keras.models.load_model(model)
     predict_plist = autoencoder.predict(onehot)
 
-    ori_song = features[:song_len]
+    ori_song = features[:song_len] # song_len: song, tag 경계선
     ori_tag = features[song_len:]
     song_predict = predict_plist[:,:song_len] # song output(추천곡)
     tag_predict = predict_plist[:,song_len:] # tag output(추천태그)
 
     p_song = np.array(ori_song)[song_predict[0].argsort()[-song_num:]] # predict한 song output 중 상위 n개
     p_tag = np.array(ori_tag)[tag_predict[0].argsort()[-tag_num:]]
-
+    
     return p_song, p_tag

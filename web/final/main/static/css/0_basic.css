@@ -1,14 +1,14 @@
 body{
-    width: 1920px;
+    /* width: 1920px; */
     background-color: #0A0909;
     color: white;
 }
 
-.background-img{
+/* .background-img{
     text-align: center;
     position: relative;
 
-}
+} */
 
 input.img-btn{
     border: none;

@@ -1,59 +1,60 @@
-.background-img {
-    display: block;
-    margin: 0 auto;
-    margin-top: -50px;
-}
-
 .logo1 {
-    position: relative; /* 추가: position 설정 */
-    top: 50px; /* 이미지를 위로 50px 이동 */
-    width: 50%;
-    height: 100%;
+    width: 300px;
+    height: auto;
+    margin: 120px;
 }
 
-.s1 {
-    font-size: 43px;
+.sub1{
     font-weight: bold;
-    margin-top: 83px;
-    width: 100%;
-    height: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin: -75px;
 }
 
-.s2 {
-    position: relative;
-    top: -13px;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #CE4DA4, #9747FF);
-    font-size: 60px;
+  .title {
+    margin: 0px;
     font-weight: bold;
+    font-size: 40px;
+    background: linear-gradient(to right,#d13f8f, #9747ff, #6d44b7, #ce4da4);
+    background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-}
+    text-fill-color: transparent;
+    animation: gradientAnimation 2.5s linear infinite; 
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
 
-.s3 {
+  .sub2 {
     position: relative;
     top: -19px;
     width: 100%;
     height: 100%;
-    color: #dcd0d0;
+    color: #a8a8a8;
 }
-
+  
 input.start-btn {
-    background: url(/static/img/1_1_start_btn.png) no-repeat;
-    width: 320px;
-    height: 100px;
-    margin: 0 auto;
-    position: relative;
-    top: -9px;
-    left: -280px;
+  background: url(/static/img/1_1_start_btn.png) no-repeat;
+  width: 320px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  top: -30px;
+  left: 0px;
 }
 
 .howtouse {
-    position: relative;
-    top: -65px;
-    left: -295px;
-    width: 200%;
-    height: 100%;
+  position: relative;
+  top: -45px;
+  left: 0px;
+  width: 100%;
+  height: auto;
 }

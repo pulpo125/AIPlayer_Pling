@@ -12,10 +12,178 @@
     color: #a8a8a8;
 }
 
-.ply_title_insert {
+.headline {
     position: relative;
-    top: -45px;
+    top: -130px;
     left: 0px;
-    width: 100%;
+    width: 80%;
     height: auto;
+}
+
+input.title-insert {
+    background: url(/static/img/2_1_input_empty.png) no-repeat;
+    width: 620px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    top: -157px;
+    left: 0px;
+    border: none;
+    font-size: 31px;
+    color: #a8a8a8;
+    font-weight: bold;
   }
+
+input.img-btn {
+    background: url(/static/img/2_1_enter_btn.png) no-repeat;
+    width: 135px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    top: -120px;
+    left: 0px;
+  }
+  
+.sub4{
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    margin: -12px;
+}
+
+.sub5 {
+    position: relative;
+    top: 12px;
+    width: 100%;
+    height: 100%;
+    color: #a8a8a8;
+    font-size: 20px;
+}
+summary::marker{ /*토글*/
+    color: #9747ff;
+    transform: scale(3);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+summary{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-left: 10px;
+}
+
+.songbox p{
+    font-size: 15px;
+    color:white;
+    margin: 3px;
+}
+
+.custom-checkbox input{
+    transform: scale(1.5);
+    margin-left: -25px;
+}
+
+/* 슬라이드 바 공통 스타일 */
+input[type=range] {
+    appearance: none; /* 브라우저 기본 스타일을 무시합니다. */
+    -webkit-appearance: none; /* 웹킷 기반 브라우저에서도 무시합니다. */
+    margin-right: 25px; /* 슬라이드 바 주변 여백 설정 */
+    width: 223px; /* 슬라이드 바의 너비를 100%로 설정하여 부모 요소 너비에 맞춥니다. */
+}
+
+/* 슬라이드 바의 선 스타일 */
+input[type=range]::-webkit-slider-runnable-track {
+    width: 223px; /* 슬라이드 바 선의 너비를 100%로 설정 */
+    height: 7.25px; /* 슬라이드 바 선의 높이 설정 */
+    cursor: pointer; /* 포인터 마우스 커서로 변경 */
+    background: #FFFFFF; /* 슬라이드 바 선의 배경색 설정 */
+}
+
+/* 슬라이드 바 버튼 스타일 */
+input[type=range]::-webkit-slider-thumb {
+    height: 22px; /* 슬라이드 바 버튼의 높이 설정 */
+    width: 83px; /* 슬라이드 바 버튼의 너비 설정 */
+    border-radius: 20px; /* 슬라이드 바 버튼의 둥근 모서리 설정 */
+    background: #89D85D; /* 슬라이드 바 버튼의 배경색 설정 */
+    cursor: pointer; /* 포인터 마우스 커서로 변경 */
+    -webkit-appearance: none; /* 웹킷 기반 브라우저에서 기본 스타일 무시 */
+    margin-top: -6px; /* 버튼 위치 조정 */
+}
+
+/* 두 번째 슬라이드 바*/
+
+/* 슬라이드 바 선 스타일 */
+#mySlider2::-webkit-slider-runnable-track {
+    width: 223px; /* 슬라이드 바 선의 너비를 100%로 설정 */
+    height: 7.25px; /* 슬라이드 바 선의 높이 설정 */
+    cursor: pointer; /* 포인터 마우스 커서로 변경 */
+    background: #FFFFFF; /* 슬라이드 바 선의 배경색 설정 */
+}
+
+/* 슬라이드 바 버튼 스타일 */
+#mySlider2::-webkit-slider-thumb {
+    height: 22px; /* 슬라이드 바 버튼의 높이 설정 */
+    width: 83px; /* 슬라이드 바 버튼의 너비 설정 */
+    border-radius: 20px; /* 슬라이드 바 버튼의 둥근 모서리 설정 */
+    background: #FF5F56; /* 슬라이드 바 버튼의 배경색 설정 */
+    cursor: pointer; /* 포인터 마우스 커서로 변경 */
+    -webkit-appearance: none; /* 웹킷 기반 브라우저에서 기본 스타일 무시 */
+    margin-top: -6px; /* 버튼 위치 조정 */
+}
+
+.slideBar {
+    display: flex;
+    justify-content: space-between; /* 각각 왼쪽과 오른쪽 끝에 위치하도록 설정 */
+    align-items: center; /* 세로 정렬을 중앙에 맞추기 위해 */
+    width: 872px; 
+    height: 87px; 
+    margin: 0 auto; /* 가운데 정렬을 위해 auto 값을 사용 */
+}
+
+.slider-container {
+    width: 400px; /* 원하는 가로 크기로 조정 */
+    height: 87px; /* 원하는 세로 크기로 조정 */
+    display: flex; /* 가로로 나열하기 위해 Flex 사용 */
+    justify-content: space-between; /* 슬라이더 컨테이너 내부 요소를 왼쪽과 오른쪽 끝에 위치하도록 설정 */
+    align-items: center; /* 세로 정렬을 중앙에 맞추기 위해 */
+    margin:0px; /* 슬라이드 바 주변 여백 설정 */
+    border:4px solid #FFFFFF;
+    border-radius: 50px; 
+    margin-top: 81px;
+}
+.slider-container img {
+    margin-left: 40px; 
+    margin-right:0px;
+}
+.slider-container p {
+    font-size: 25px;
+    font-weight: bold;
+    margin:0px;
+}
+
+/* 기본 이미지 컨테이너 스타일 */
+.image-container {
+    position: relative;
+    /* overflow: hidden; 호버 이미지가 넘치지 않도록 설정 */
+}
+
+/* 메인 이미지 스타일 */
+#main-image {
+    object-fit: cover; /* 이미지가 컨테이너에 맞게 조절되도록 설정 */
+}
+
+/* 호버 이미지 스타일 (숨겨진 상태로 초기화) */
+.hover-image {
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 첫 번째 이미지 호버 효과 */
+.slider-container .image-container:hover .hover-image {
+    opacity: 1;
+}

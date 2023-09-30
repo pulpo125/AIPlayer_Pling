@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Player</title>
+    <link rel="stylesheet" href="{% static 'css/0_basic.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/1_index.css' %}?after">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="indexTop">
+            <div id="logoBox">
+                <img class="logo-img" src="/static/img/1_1_logo.png" alt="logo_img">
+            </div>
+            <div id="titleBox">
+                <h2>자연어, 이미지 생성 모델 기반 플레이리스트 메이킹 툴</h2>
+                <h1>딥러닝 기반 플레이리스트 자동 생성 서비스</h1>
+                <p>생성하려는 플레이리스트 제목을 입력하면 유튜브 썸네일 이미지, 해시태그, 곡 구성 리스트를 한번에 생성해드립니다</p>
+            </div>
+            <div id="btnBox">
+                <input type="button" class="img-btn start-btn" onclick="location.href='/input/'">
+            </div>
+        </div>
+    
+        <!-- <div id="indexBottom">
+            <img class="howtouse" src="/static/img/1_2_main_howtouse.png" alt="howtouse_img">
+        </div> -->
+    </div>
+</body>
+</html>

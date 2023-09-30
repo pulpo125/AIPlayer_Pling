@@ -4,8 +4,8 @@ import tensorflow as tf
 from collections import Counter
 # pip install tensorflow
 
-data = 'C:/mockup/final/main/ai/train.json'
-model = 'C:/mockup/final/main/ai/autoencoder_denoise_ad.h5'
+data = './train.json'
+model = './autoencoder_denoise_ad.h5'
 autoencoder = tf.keras.models.load_model(model)
 
 def load_data(data, like_cnt) :

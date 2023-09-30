@@ -187,3 +187,13 @@ input[type=range]::-webkit-slider-thumb {
 .slider-container .image-container:hover .hover-image {
     opacity: 1;
 }
+
+input.generate-btn {
+    background: url(/static/img/2_2_generate_btn.png) no-repeat;
+    width: 320px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 183px;
+    left: 0px;
+  }

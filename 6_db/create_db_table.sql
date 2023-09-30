@@ -1,6 +1,6 @@
 CREATE DATABASE finaldb CHARACTER SET utf8mb4 collate utf8mb4_general_ci;
-create user django identified by 'root1234';
-grant all privileges on finaldb.*To django;
+create user 'django'@'%' identified by 'root1234';
+grant all privileges on *.* to 'django'@'%' with grant option;
 flush privileges;
 
 -- drop database finald; 

@@ -5,12 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 5초 후 화면 이동 -->
+    <!-- <meta http-equiv="refresh" content="5; url='/output/'">   -->
     <title>AI Player</title>
 
     <link rel="stylesheet" href="{% static 'css/0_basic.css' %}">
     <link rel="stylesheet" href="{% static 'css/3_loading.css' %}">
 </head>
 <body>
-
+    {% for meta in song_meta%}
+       <p>{{ meta.song }} | {{ meta.artist }}</p>
+    {% endfor %}
+    
+    {% for tag in p_tag%}
+        <p style="display: inline;">#{{ tag }} </p>
+    {% endfor %}  
 </body>
 </html>

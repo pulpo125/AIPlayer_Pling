@@ -1,0 +1,28 @@
+input.title-insert {
+    background: url("/static/img/2_1_insert_title.png") no-repeat;
+    position: absolute;
+    border: none;
+    width: 600px;
+    height: 90px;
+    top: 800px;
+    left: 590px;
+    color: white;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+input.enter-btn {
+    background: url("/static/img/2_1_enter_btn.png") no-repeat;
+    width: 150px;
+    height: 90px;
+    top: 800px;
+    left: 1210px;
+}
+
+input.generate-btn {
+    background: url("/static/img/2_2_generate_btn.png") no-repeat;
+    width: 312px;
+    height: 90px;
+    top: 1682px;
+    left: 800px;
+}

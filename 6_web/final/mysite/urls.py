@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('input/', views.input, name='input'),
+    path('input/similar_ply', views.similar_ply, name='similar_ply'),
     path('loading/', views.loading, name='loading'),
     path('output/', views.output, name='output'),
 ]

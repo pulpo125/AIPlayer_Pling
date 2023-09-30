@@ -1,2 +1,4 @@
 0_data/**
-results/**
+3_autoEncoder/results/**
+*.json
+*.h5

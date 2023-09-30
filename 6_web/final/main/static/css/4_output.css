@@ -1,0 +1,80 @@
+.logo4 {
+    width: 300px;
+    height: auto;
+    margin: 120px;
+}
+.sub3 {
+    position: relative;
+    top: -75px;
+    width: 100%;
+    height: 100%;
+    color: #a8a8a8;
+}
+
+.headline {
+    position: relative;
+    top: -130px;
+    left: 0px;
+    width: 80%;
+    height: auto;
+}
+
+.result_section {
+    border-radius: 122px;
+    border: 10px solid  #f7e6e6a3;
+    padding: 145px;
+    border-image-slice: 1;
+    margin-top: -109px;
+    /* border-image-source: linear-gradient(to right, #d13f8f, #9747ff, #6d44b7, #ce4da4); */
+}
+
+.result_img{
+    position: relative;
+    top: -75px;
+    left: 0px;
+    width: 80%;
+    height: auto;
+    margin-top: 12px;
+    margin-bottom: -46px;
+}
+.result_title h2{
+    font-weight: 800;
+    font-size: 38px;
+    color: white;
+    margin-top: -26px;
+    margin-bottom: 56px;
+}
+
+.result_tags p {
+    background-color: #e738ad94;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 32px;
+    position: relative;
+    color: white;
+    margin-top: -68px;
+    margin-right: 23px;
+    margin-bottom: 21px;
+    padding: 10px 20px;
+}
+
+.result_songs p {
+    background-color: #9747ff53;
+    border-radius: 10px;
+    padding: 8px 76px;
+    margin: 26px;
+    font-size: 25px;
+    position: relative;
+    color: white;
+    margin-top: 28px;
+    margin-right: 111px;
+    margin-left: 92px;
+}
+
+.result_option{
+    margin-top: 41px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: -98px;
+}

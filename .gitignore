@@ -2,3 +2,4 @@
 3_autoEncoder/results/**
 *.json
 *.h5
+__pycache__

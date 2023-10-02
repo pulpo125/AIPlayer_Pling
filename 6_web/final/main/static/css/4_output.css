@@ -1,28 +1,105 @@
-input.title-insert {
-    background: url("/static/img/2_1_insert_title.png") no-repeat;
-    position: absolute;
-    border: none;
-    width: 600px;
-    height: 90px;
-    top: 800px;
-    left: 590px;
+.logo4 {
+    width: 300px;
+    height: auto;
+    margin: 120px;
+}
+.sub3 {
+    position: relative;
+    top: -75px;
+    width: 100%;
+    height: 100%;
+    color: #a8a8a8;
+}
+
+.headline {
+    position: relative;
+    top: -130px;
+    left: 0px;
+    width: 80%;
+    height: auto;
+}
+
+.result_section {
+    border-radius: 122px;
+    border: 10px solid  #f7e6e6a3;
+    padding: 145px;
+    border-image-slice: 1;
+    margin-top: -109px;
+    /* border-image-source: linear-gradient(to right, #d13f8f, #9747ff, #6d44b7, #ce4da4); */
+}
+
+.result_img{
+    position: relative;
+    top: -75px;
+    left: 0px;
+    width: 80%;
+    height: auto;
+    margin-top: 12px;
+    margin-bottom: -46px;
+}
+.result_title h2{
+    font-weight: 800;
+    font-size: 38px;
     color: white;
-    font-weight: bolder;
-    font-size: 30px;
+    margin-top: -26px;
+    margin-bottom: 56px;
 }
 
-input.enter-btn {
-    background: url("/static/img/2_1_enter_btn.png") no-repeat;
-    width: 150px;
-    height: 90px;
-    top: 800px;
-    left: 1210px;
+.result_tags p {
+    background-color: #e738ad94;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 32px;
+    position: relative;
+    color: white;
+    margin-top: -68px;
+    margin-right: 23px;
+    margin-bottom: 21px;
+    padding: 10px 20px;
 }
 
-input.generate-btn {
-    background: url("/static/img/2_2_generate_btn.png") no-repeat;
-    width: 312px;
-    height: 90px;
-    top: 1682px;
-    left: 800px;
+.result_songs p {
+    background-color: #9747ff53;
+    border-radius: 10px;
+    padding: 8px 76px;
+    margin: 26px;
+    font-size: 25px;
+    position: relative;
+    color: white;
+    margin-top: 28px;
+    margin-right: 111px;
+    margin-left: 92px;
+}
+
+.result_option{
+    margin-top: 41px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: -98px;
+}
+
+input.like-btn {
+    background: url(/static/img/4_like_btn.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    /* margin: 0 auto; */
+    position: relative;
+    top: -55px;
+  }
+
+input.img-download-btn {
+    background: url(/static/img/4_capture_download_btn.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    /* margin: 0 auto; */
+    position: relative;
+}
+
+input.capture-btn {
+    background: url(/static/img/4_image_download_btn.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    /* margin: 0 auto; */
+    position: relative;
 }

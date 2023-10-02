@@ -1,11 +1,11 @@
 function downloadImage() {
     // 이미지 파일 URL 설정 
-    var imageUrl = '/static/result/4_2_ex_img.jpg';  
+    var imageUrl = '/static/result/4_2_ex_img.png';  
 
     // 새로운 <a> 요소를 동적으로 생성하여 이미지 다운로드 링크 생성
     var a = document.createElement('a');
     a.href = imageUrl;  // 이미지 파일 URL을 링크의 href 속성에 설정
-    a.download = '4_2_ex_img.jpg';  // 다운로드할 파일 이름 설정
+    a.download = '4_2_ex_img.png';  // 다운로드할 파일 이름 설정
     a.style.display = 'none';  // 화면에 표시하지 않도록 설정
 
     // <a> 요소를 body에 추가하여 클릭 이벤트를 발생

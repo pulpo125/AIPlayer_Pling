@@ -79,27 +79,20 @@
     margin-bottom: -98px;
 }
 
-input.like-btn {
-    background: url(/static/img/4_like_btn.png) no-repeat;
+input.output-btn{
     width: 100px;
     height: 100px;
-    /* margin: 0 auto; */
     position: relative;
-    top: -55px;
+}
+
+input.like-btn {
+    background: url(/static/img/4_like_btn.png) no-repeat;
   }
 
 input.img-download-btn {
     background: url(/static/img/4_capture_download_btn.png) no-repeat;
-    width: 100px;
-    height: 100px;
-    /* margin: 0 auto; */
-    position: relative;
 }
 
 input.capture-btn {
     background: url(/static/img/4_image_download_btn.png) no-repeat;
-    width: 100px;
-    height: 100px;
-    /* margin: 0 auto; */
-    position: relative;
 }

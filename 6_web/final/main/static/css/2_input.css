@@ -51,6 +51,14 @@ input.enter-btn {
     margin: -12px;
 }
 
+.simply-box {
+    background-color: #3C3A44; 
+    width: 106%; 
+    max-width: 120%; 
+    margin-left: -3%; 
+    margin-right: 3%;
+}
+
 .sub5 {
     position: relative;
     top: 12px;
@@ -73,7 +81,7 @@ summary{
 }
 
 .songbox p{
-    font-size: 15px;
+    font-size: 20px;
     color:white;
     margin: 3px;
 }
@@ -138,6 +146,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 872px; 
     height: 87px; 
     margin: 0 auto; /* 가운데 정렬을 위해 auto 값을 사용 */
+    margin-top: 30px;
 }
 
 .slider-container {
@@ -194,6 +203,6 @@ input.generate-btn {
     height: 100px;
     margin: 0 auto;
     position: relative;
-    margin-top: 300px;
+    margin-top: 200px;
     left: 0px;
   }

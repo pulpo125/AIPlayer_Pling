@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.http import JsonResponse
 from django.utils import timezone
+from main.ai.autoencoder import ply_to_onehot, recommendation, apply_sim
 from main.models import PlyMeta, SongMeta, SongInPly, PlyTitleEmbedding
 from main.ai.bert import encoding, get_sim_ply_id, emd_to_array
-from main.ai.autoencoder import make_features, ply_to_onehot, recommendation
 import pandas as pd
 
 def index(request):
@@ -51,22 +52,27 @@ def similar_ply(request):
         # 예외가 발생한 경우 오류 응답을 반환합니다.
         return JsonResponse({"error": str(e)}, status=500)
 
+
 def loading(request):
-    pl_id, song_num, tag_num = 122388, 20, 10
-    features, song_len = make_features(song_num, tag_num)
-    onehot = ply_to_onehot(pl_id, features)
-    # model = 'C:/mockup/final/main/ai/autoencoder_denoise_ad.h5' # py 파일로 이동
-    p_song, p_tag = recommendation(onehot, features, song_len, song_num, tag_num)
+    if request.method == 'POST':
+        # POST 요청으로 전송된 데이터 받기
+        select_ply_lst = request.POST.getlist('select_ply') 
+        similarity = request.POST.get('similarity', '')  # 슬라이더의 값을 가져옴
+        song_num = request.POST.get('song_num', '')      # 슬라이더의 값을 가져옴
+
+        input_song, input_tag, input_onehot = ply_to_onehot(select_ply_lst)
+        rec_song, rec_tag = recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=22798)
+
+        # # 유사도 적용
+        sim_reco_song  = apply_sim(similarity, input_song, rec_song, song_num)
+
+        # song_id 별 song_name. artist_name_lst
+        rec_song_meta = []
+        for rec_song_id in sim_reco_song:
+            queryset = SongMeta.objects.filter(song_id=rec_song_id).values('song_name', 'artist_name_lst')
+            rec_song_meta.append({'song':queryset[0]['song_name'], 'artist':queryset[0]['artist_name_lst']})
     
-    p_song, p_tag = p_song[:5], p_tag[:5] # test로 5개만 뽑아봄
-
-    # song_id 별 song_name. artist_name_lst
-    song_meta = []
-    for p_song_id in p_song:
-        queryset = SongMeta.objects.filter(song_id=p_song_id).values('song_name', 'artist_name_lst')
-        song_meta.append({'song':queryset[0]['song_name'], 'artist':queryset[0]['artist_name_lst']})
-
-    return render(request, '3_loading.html', context={'song_meta': song_meta, 'p_tag': p_tag})
+    return render(request, '3_loading.html', context={'rec_song_meta': rec_song_meta, 'rec_tag': rec_tag})
 
 def output(request):
     return render(request, "4_output.html")

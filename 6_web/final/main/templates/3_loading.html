@@ -11,14 +11,18 @@
 
     <link rel="stylesheet" href="{% static 'css/0_basic.css' %}">
     <link rel="stylesheet" href="{% static 'css/3_loading.css' %}">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-    {% for meta in song_meta%}
+    {% for meta in rec_song_meta%}
        <p>{{ meta.song }} | {{ meta.artist }}</p>
     {% endfor %}
     
-    {% for tag in p_tag%}
+    {% for tag in rec_tag%}
         <p style="display: inline;">#{{ tag }} </p>
     {% endfor %}  
+    <!-- <p>{{ ply_id }}</p>
+    <p>{{ similarity }}</p>
+    <p>{{ song_num }}</p> -->
 </body>
 </html>

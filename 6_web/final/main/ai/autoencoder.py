@@ -1,74 +1,99 @@
-import pandas as pd
-import numpy as np
-import tensorflow as tf
-from collections import Counter
 import os
-# pip install tensorflow
+import io
+import json
+import distutils.dir_util
+import numpy as np
+import pandas as pd
+import pickle
+import tensorflow as tf
+from itertools import chain 
 
+# json write & load 함수 정의
+def write_json(data, fname):
+    def _conv(o):
+        if isinstance(o, (np.int64, np.int32)):
+            return int(o)
+        raise TypeError
+
+    parent = os.path.dirname(fname)
+    distutils.dir_util.mkpath(parent)
+    with io.open(fname, "w", encoding="utf-8") as f:
+        json_str = json.dumps(data, ensure_ascii=False, default=_conv)
+        f.write(json_str)
+        
+def load_json(fname):
+    with open(fname, encoding='utf-8') as f:
+        json_obj = json.load(f)
+
+    return json_obj
+
+# data load
 path = os.getcwd()
-data = path + '\\main\\ai\\train.json'
-model = path + '\\main\\ai\\autoencoder_denoise_ad.h5'
-autoencoder = tf.keras.models.load_model(model)
+path = path + '\\main\\ai\\data\\'
+data_path = path + 'data.json'
+mfl_col_path = path + 'mfl_col.pkl'
+model_path = path + 'model_7.h5'
 
-def load_data(data, like_cnt) :
-    f = pd.read_json(data ,typ = 'frame', encoding='utf-8')
-    df = pd.DataFrame(f)
-    df = df.sort_values(by=['like_cnt'],ascending=False)
-    df = df[df['like_cnt']>like_cnt]
-    return df
+with open(mfl_col_path, 'rb') as f: # 사용 feature
+    features = pickle.load(f)
 
-# df loading
-df = load_data(data, 5)
+data = pd.read_json(data_path) # 전체 플리 데이터
 
-def make_features(song_num, tag_num) :
-    # 플레이리스트 내 song id 리스트
-    song_all = df['songs']
-    # 플레이리스트 내 tag 리스트
-    tag_all = df['tags']
-    # 플레이리스트 내 song id 리스트 전체 나열
-    song_list = [song for plist in song_all for song in plist]
-    # 플레이리스트 내 tag 리스트 전체 나열
-    tag_list = [tag for plist in tag_all for tag in plist]
+autoencoder = tf.keras.models.load_model(model_path)
 
-    # 전체 나열 리스트 중 각 song의 개수
-    count_song = Counter(song_list)
-    # 전체 나열 리스트 중 각 tag의 개수
-    count_tag = Counter(tag_list)
+# 1. ply_id 넣으면 해당 행을 원핫 벡터로 변경
+def ply_to_onehot(select_ply_lst):
+    # ply_id int형 변환
+    select_ply_lst = list(map(int, select_ply_lst))
+    # zero_mt 생성
+    zero_matrix = np.zeros((1,len(features)))
+    input_onehot = pd.DataFrame(zero_matrix,columns=features)
 
-    meaningful={} 
-    for key, value in count_song.items():
-        if value>song_num:
-            meaningful[key]=value
-    song_len = len(meaningful) # 20회 넘게 담긴 song의 개수
-    # 전체 플레이리스트 내 10회 넘게 담긴 tag을 dictionary에 추가
-    for key, value in count_tag.items():
-        if value>tag_num:
-            meaningful[key]=value
-    features = list(meaningful.keys()) # 유의미한 song과 tag 전체 개수
+    # input_ply
+    input_song = []
+    input_tag = []
+    for ply_id in select_ply_lst:
+        input_song.append(data[data['id']==ply_id]['songs'].tolist()[0])
+        input_tag.append(data[data['id']==ply_id]['tags'].tolist()[0])
 
-    return features, song_len
+    input_song = list(chain.from_iterable(input_song))
+    input_tag = list(chain.from_iterable(input_tag))
+    input_ply = input_song + input_tag
 
-def ply_to_onehot(pl_id, features):
-    zero_matrix=np.zeros((1,len(features)))
-    onehot=pd.DataFrame(zero_matrix,columns=features)
-    pl_ft = df[df['id']==pl_id]['songs'].tolist()[0] + df[df['id']==pl_id]['tags'].tolist()[0]
-
-    for ft in pl_ft :
+    # one-hot encoding
+    for ft in input_ply :
         if ft in features:
-            onehot.iloc[0,features.index(ft)]=1
+            input_onehot.iloc[0,features.index(ft)]=1
 
-    return onehot
+    return input_song, input_tag, input_onehot
 
-def recommendation(onehot, features, song_len, song_num, tag_num) :
-    # autoencoder = tf.keras.models.load_model(model)
-    predict_plist = autoencoder.predict(onehot)
+# 추천 결과 생성
+def remove_seen(seen, l):
+    seen = set(seen)
+    return [x for x in l if not (x in seen)]
 
+def recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=22798):
+    # predict
+    predict_plist = autoencoder.predict(input_onehot)
+
+    # result
     ori_song = features[:song_len]
     ori_tag = features[song_len:]
     song_predict = predict_plist[:,:song_len] # song output(추천곡)
     tag_predict = predict_plist[:,song_len:] # tag output(추천태그)
 
-    p_song = np.array(ori_song)[song_predict[0].argsort()[-song_num:]] # predict한 song output 중 상위 n개
-    p_tag = np.array(ori_tag)[tag_predict[0].argsort()[-tag_num:]]
+    p_song = np.array(ori_song)[song_predict[0].argsort()[::-1][:(song_num*10)]]
+    p_tag = np.array(ori_tag)[tag_predict[0].argsort()[::-1][:(tag_num*10)]]
 
-    return p_song, p_tag
+    rec_song = remove_seen(input_song, p_song)[:song_num] 
+    rec_tag = remove_seen(input_tag, p_tag)[:tag_num]
+    
+    return rec_song, rec_tag
+
+# 유사도 적용
+def apply_sim(similarity, input_song, rec_song, song_num):
+    sim_num = round(song_num * (similarity / 100))
+    rec_song = rec_song[:-sim_num]
+    sim_song = input_song[:sim_num]
+    sim_rec_song = sim_song + rec_song
+    return sim_rec_song

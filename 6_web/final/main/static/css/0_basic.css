@@ -16,6 +16,6 @@ input.img-btn{
     position: absolute;
 }
 
-p {
-    font-size: 25px;
+p, span{
+    font-size: 20px;
 }

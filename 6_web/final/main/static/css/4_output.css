@@ -90,9 +90,9 @@ input.like-btn {
   }
 
 input.img-download-btn {
-    background: url(/static/img/4_capture_download_btn.png) no-repeat;
+    background: url(/static/img/4_image_download_btn.png) no-repeat;
 }
 
 input.capture-btn {
-    background: url(/static/img/4_image_download_btn.png) no-repeat;
+    background: url(/static/img/4_capture_download_btn.png) no-repeat;
 }

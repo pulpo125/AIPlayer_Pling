@@ -1,0 +1,21 @@
+input.like-btn {
+    background: url(/static/img/4_like_btn.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    top: 2500px;
+    left: 700px;
+}
+input.img-download-btn {
+    background: url(/static/img/4_image_download_btn.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    top: 2500px;
+    left: 950px;
+}
+input.capture-btn {
+    background: url(/static/img/4_capture_download_btn.png) no-repeat;
+    width: 100px;
+    height: 100px;
+    top: 2500px;
+    left: 1200px;
+}

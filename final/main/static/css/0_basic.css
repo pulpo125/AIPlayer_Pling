@@ -1,0 +1,16 @@
+body {
+    width: 1920 px;
+    background-color: #0a0909;
+    color:white;
+}
+
+.background-img{
+    text-align: center;
+    position: relative;
+}
+
+input.img-btn{
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>AI Player</title>
+    <link rel="stylesheet" href="{% static 'css/0_basic.css'%}?after">
+    <link rel="stylesheet" href="{% static 'css/2_input_slider.css'%}?after">
+  </head>
+  <body>
+    <div id="inputBottom" class="slideBar">
+      <div class="slider-container">
+        <div class="image-container">
+          <img src="/static/img/2_2_question_mark.png" alt="question_mark">
+          <div class="hover-image">
+            <!-- 호버 시에 나타날 이미지 -->
+            <img src="/static/img/2_2_similarity_explanation.png" alt="your_hover_image">
+          </div>
+        </div>
+        <p>유사도</p>
+        <input type="range" min="0" max="100" value="50" class="slider" id="mySlider1">
+      </div>
+      <span id="sliderValueDisplay1">50</span> <!-- 움직일 때마다 값이 바뀌는지 확인하는 값 -->
+
+      <div class="slider-container">
+        <div class="image-container">
+          <img src="/static/img/2_2_question_mark.png" alt="question_mark">
+          <div class="hover-image">
+            <!-- 호버 시에 나타날 이미지 -->
+            <img src="/static/img/2_2_song_count_explanation.png" alt="your_hover_image">
+          </div>
+        </div>
+        <p>곡 갯수</p>
+        <input type="range" min="5" max="20" value="12" class="slider" id="mySlider2">
+      </div>
+      <span id="sliderValueDisplay2">12</span> <!-- 움직일 때마다 값이 바뀌는지 확인하는 값 -->
+
+    </div>
+
+    <script src="{% static 'js/2_input_slider.js' %}"></script>
+  </body>
+</html>

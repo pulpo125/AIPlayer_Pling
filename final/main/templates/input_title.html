@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>AI Player</title>
+    <link rel="stylesheet" href="{% static 'css/0_basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/1_index.css' %}">
+  </head>
+  <body>
+    <div class="background-img">
+        <form action="{% url 'custom' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="new_title">
+            <input type="submit" onclick="location.href='/custom/'" value="POST">
+        </form>
+    </div>  
+  </body>
+</html>

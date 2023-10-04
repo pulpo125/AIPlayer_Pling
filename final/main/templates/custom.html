@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>AI Player</title>
+    <link rel="stylesheet" href="{% static 'css/0_basic.css' %}">
+    <link rel="stylesheet" href="{% static 'css/1_index.css' %}">
+  </head>
+  <body>
+    <!-- 유사 플리 리스트 및 커스터마이징 -->
+    <div id="showBox" class="background-img">
+      <img src="/static/img/2_2_input_bottom_background.png" alt="input_bottom">
+      <label>
+          {% for ply in sim_ply_info  %}
+          <div id="ply_{{ ply.ply_id }}">
+              <input class="checkbox" type="checkbox" name="select_ply" value="{{ ply.ply_id }}" onclick="alert('{{ ply.ply_id }}')"/>
+              <details>
+                  <summary><p class="title">{{ ply.ply_title }}</p></summary>
+                  <div class="songbox">
+                      {% for song in ply.song_meta %}
+                          <p>{{ song.song_name }} - {{ song.artist_name }}</p>
+                      {% endfor %}
+                  </div>
+              </details>                    
+          </div>  
+      {% endfor %}
+      </label>
+      <input type="button" class="img-btn generate-btn" onclick="location.href='/loading/'">
+  </div>
+  </body>
+</html>

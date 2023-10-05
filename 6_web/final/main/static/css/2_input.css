@@ -67,12 +67,11 @@ input.enter-btn {
     color: #a8a8a8;
     font-size: 20px;
 }
-summary::marker{ /*토글*/
+summary::marker {
     color: #9747ff;
-    transform: scale(3);
+    transform: translate(50px, 50px); /* 가로로 50px, 세로로 50px 이동 */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
 }
-
 summary{
     font-size: 20px;
     font-weight: 600;
@@ -86,10 +85,12 @@ summary{
     margin: 3px;
 }
 
-.custom-checkbox input{
+.checkbox{
     transform: scale(1.5);
     margin-left: -25px;
+    margin-top: 20px;
 }
+
 
 /* 슬라이드 바 공통 스타일 */
 input[type=range] {
@@ -206,3 +207,45 @@ input.generate-btn {
     margin-top: 200px;
     left: 0px;
   }
+
+.submit-btn{
+    width: 320px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.custom-checkbox details {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-left: -25px;
+    margin-top: 0; /* 기존의 margin-top 제거 */
+}
+
+summary::marker {
+    display: none; /* 기본 marker 숨김 */
+    /* 원하는 marker 스타일을 여기에 추가하세요 */
+}
+
+.summary {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-left: 10px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-left: -25px;
+}

@@ -13,39 +13,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    
+        .custom-checkbox {
+            display: flex; /* 요소를 수평으로 배치 */
+            align-items: center; /* 요소를 수직 가운데 정렬 */
+        }
+    
+        .custom-checkbox details {
+            flex: 1; /* 나머지 공간을 확장하여 써머리와 상자를 한 줄에 배치 */
+            white-space: nowrap; /* 텍스트가 넘칠 경우 줄 바꿈 방지 */
+            overflow: hidden; /* 넘칠 경우 숨김 처리 */
+            text-overflow: ellipsis;
+            margin-bottom: 20px;
+        }
+    
+        .ply_lst_headline {
+            background-color: #222121;
+            padding: 100px;
+            width: 50%;
+            border-radius: 10px;
+            margin-top: -100px;
+        }
+    
+        .col-6 {
+            border-radius: 10px; /* 둥근 모서리 반지름 설정 */
+            background-color: #726C86; /* 배경 색상 설정 */
+        }
+    </style>
 </head>
-
-<style>
-    * {
-        font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .custom-checkbox {
-        display: flex; /* 요소를 수평으로 배치 */
-        align-items: center; /* 요소를 수직 가운데 정렬 */
-    }
-
-    .custom-checkbox details {
-        flex: 1; /* 나머지 공간을 확장하여 써머리와 상자를 한 줄에 배치 */
-        white-space: nowrap; /* 텍스트가 넘칠 경우 줄 바꿈 방지 */
-        overflow: hidden; /* 넘칠 경우 숨김 처리 */
-        text-overflow: ellipsis;
-        margin-bottom: 20px;
-    }
-
-    .ply_lst_headline {
-        background-color: #222121;
-        padding: 100px;
-        width: 50%;
-        border-radius: 10px;
-        margin-top: -100px;
-    }
-
-    .col-6 {
-        border-radius: 10px; /* 둥근 모서리 반지름 설정 */
-        background-color: #726C86; /* 배경 색상 설정 */
-    }
-</style>
 <body>
     <!--input top-->
     <div class="container ">
@@ -114,12 +113,12 @@
                             <div class="custom-checkbox text-center">
                                 <input type="checkbox" name="select_ply" value="0"/>
                                 <details>
-                                    <summary>1번째 크리스마스에 듣기 좋은 노래</summary>
+                                    <summary>입력한 제목과 유사한 플레이리스트 제목</summary>
                                     <div class="songbox">
-                                        <p>1-1번째 SnowMan - Sia</p>
-                                        <p>1-2번째 SnowMan - Sia</p>
-                                        <p>1-3번째 SnowMan - Sia</p>
-                                        <p>1-4번째 SnowMan - Sia</p>
+                                        <p>SnowMan - Sia</p>
+                                        <p>SnowMan - Sia</p>
+                                        <p>SnowMan - Sia</p>
+                                        <p>SnowMan - Sia</p>
                                     </div>
                                 </details>
                             </div>
@@ -128,41 +127,46 @@
                     <div class="col"></div>
                 </div>
             </div>
-    
-            <div id="inputBottom" class="slideBar">
-                <div class="slider-container">
-                <div class="image-container">
-                    <img src="/static/img/2_2_question_mark.png" alt="question_mark">
-                    <div class="hover-image">
-                    <!-- 호버 시에 나타날 이미지 -->
-                    <img src="/static/img/2_2_similarity_explanation.png" alt="your_hover_image">
+
+            <div>
+                <div id="inputBottom" class="slideBar">
+                    <div class="slider-container">
+                    <div class="image-container">
+                        <img src="/static/img/2_2_question_mark.png" alt="question_mark">
+                        <div class="hover-image">
+                        <!-- 호버 시에 나타날 이미지 -->
+                        <img src="/static/img/2_2_similarity_explanation.png" alt="your_hover_image">
+                        </div>
                     </div>
-                </div>
-                <p>유사도</p>
-                <input type="range" name="similarity" min="0" max="100" value="50" class="slider" id="mySlider1">
-                </div>
-                <span id="sliderValueDisplay1">50</span>
-        
-                <div class="slider-container">
-                <div class="image-container">
-                    <img src="/static/img/2_2_question_mark.png" alt="question_mark">
-                    <div class="hover-image">
-                    <!-- 호버 시에 나타날 이미지 -->
-                    <img src="/static/img/2_2_song_count_explanation.png" alt="your_hover_image">
+                    <p>유사도</p>
+                    <input type="range" name="similarity" min="0" max="100" value="50" class="slider" id="mySlider1">
                     </div>
+                    <span id="sliderValueDisplay1">50</span>
+            
+                    <div class="slider-container">
+                    <div class="image-container">
+                        <img src="/static/img/2_2_question_mark.png" alt="question_mark">
+                        <div class="hover-image">
+                        <!-- 호버 시에 나타날 이미지 -->
+                        <img src="/static/img/2_2_song_count_explanation.png" alt="your_hover_image">
+                        </div>
+                    </div>
+                    <p>곡 개수</p>
+                    <input type="range" name="song_num" min="5" max="20" value="10" class="slider" id="mySlider2">
+                    </div>
+                    <span id="sliderValueDisplay2">10</span>
                 </div>
-                <p>곡 개수</p>
-                <input type="range" name="song_num" min="5" max="20" value="10" class="slider" id="mySlider2">
+                <div class="submit-btn">
+                    <input type="submit" value="" class="img-btn generate-btn" onclick="location.href='/loading/'"> 
                 </div>
-                <span id="sliderValueDisplay2">10</span>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col"></div>
                 <div class="col-12 text-center">
                     <input type="submit" class="img-btn generate-btn" onclick="location.href='/loading/'">
                 </div>
                 <div class="col"></div>
-            </div>
+            </div> -->
         </div>
     </form>
      <!--JS연결-->

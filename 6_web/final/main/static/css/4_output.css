@@ -23,6 +23,7 @@
     border-radius: 122px;
     border: 10px solid  #f7e6e6a3;
     padding: 145px;
+    padding-bottom: 213px;
     border-image-slice: 1;
     margin-top: -109px;
     /* border-image-source: linear-gradient(to right, #d13f8f, #9747ff, #6d44b7, #ce4da4); */
@@ -85,14 +86,74 @@ input.output-btn{
     position: relative;
 }
 
-input.like-btn {
+
+/* 기본 이미지 컨테이너 스타일 */
+.bottom_btns {
+    position: relative;
+    /* overflow: hidden; 호버 이미지가 넘치지 않도록 설정 */
+}
+
+/* 호버 이미지 스타일 (숨겨진 상태로 초기화) */
+/* .hover-image {
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+} */
+
+input.like_btn {
     background: url(/static/img/4_like_btn.png) no-repeat;
   }
 
-input.img-download-btn {
+input.download_btn {
     background: url(/static/img/4_image_download_btn.png) no-repeat;
 }
 
-input.capture-btn {
+input.capture_btn {
     background: url(/static/img/4_capture_download_btn.png) no-repeat;
+}
+
+#likeHover{
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+}
+
+#dwHover{
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+}
+
+#capHover{
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+}
+
+.hover-like{
+    margin-top: 117px;
+    margin-left: 139px;
+}
+
+.hover-dw{
+    margin-top: 117px;
+    margin-left: 477px;;
+}
+
+.hover-cap{
+    margin-top: 117px;
+    margin-left: 817px;
 }

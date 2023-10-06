@@ -43,3 +43,36 @@ function captureAndDownload() {
         document.body.removeChild(a);
     });
 }
+
+const imgbtn = document.querySelector('#likeBtn');
+const imghover = document.querySelector('#likeHover');
+
+imgbtn.addEventListener('mouseenter', () => {
+    imghover.style.opacity = '1'; // mousehover시 이미지가 나타남
+});
+
+imgbtn.addEventListener('mouseleave', () => {
+    imghover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
+});
+
+const dwBtn = document.querySelector('#dwBtn');
+const dwHover = document.querySelector('#dwHover');
+
+dwBtn.addEventListener('mouseenter', () => {
+    dwHover.style.opacity = '1'; // mousehover시 이미지가 나타남
+});
+
+dwBtn.addEventListener('mouseleave', () => {
+    dwHover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
+});
+
+const capBtn = document.querySelector('#capBtn');
+const capHover = document.querySelector('#capHover');
+
+capBtn.addEventListener('mouseenter', () => {
+    capHover.style.opacity = '1'; // mousehover시 이미지가 나타남
+});
+
+capBtn.addEventListener('mouseleave', () => {
+    capHover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
+});

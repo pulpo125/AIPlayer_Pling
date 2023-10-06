@@ -88,32 +88,41 @@
             </div>
             <div class="col"></div>
         </div>
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-12 text-center">
-                <!-- <img class="result_option" src="/static/img/4_like_btn.png" alt="result_option">
-                <img class="result_option" src="/static/img/4_capture_download_btn.png" alt="result_option">
-                <img class="result_option" src="/static/img/4_image_download_btn.png" alt="result_option"> -->
-                <input type="button" class="result_option like-btn img-btn output-btn" onclick="alert('좋아요')">
 
-                <div class="image-container"> <!--다운로드 호버-->
-                    <input type="button" class="result_option img-download-btn img-btn output-btn" onclick="downloadImage()">
-                    <div class="hover-image">
-                    <!-- 호버 시에 나타날 이미지 -->
-                    <img src="/static/img/4_img_download_btn_hover.png" alt="download_hover">
+        <div class="container">
+            <div id="3_btns" class="row bottom_btns">
+                <div class="col-12 col-md-4"> <!-- 좋아요 버튼 -->
+                    <div class="btn">
+                        <input id="likeBtn" type="button" class="result_option like_btn img-btn output-btn" onclick="like_btn">
+                        <div id="likeHover" class="hover-image">
+                            <!-- 호버 시에 나타날 이미지 -->
+                            <img class="hover-like" src="/static/img/4_like_btn_hover.png" alt="like_description">
+                        </div>
                     </div>
                 </div>
-
-                <div class="image-container"> <!--캡쳐 호버-->
-                    <input type="button" class="result_option capture-btn img-btn output-btn" onclick="captureAndDownload()">
-                    <div class="hover-image">
-                    <!-- 호버 시에 나타날 이미지 -->
-                    <img src="/static/img/4_capture_download_btn_hover.png" alt="capture_hover">
+        
+                <div class="col-12 col-md-4"> <!-- 다운로드 버튼 -->
+                    <div class="btn">
+                        <input id="dwBtn" type="button" class="result_option download_btn img-btn output-btn" onclick="download_btn">
+                        <div id="dwHover" class="hover-image">
+                            <!-- 호버 시에 나타날 이미지 -->
+                            <img class="hover-dw" src="/static/img/4_img_download_btn_hover.png" alt="download_description">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-12 col-md-4"> <!-- 캡쳐 버튼 -->
+                    <div class="btn">
+                        <input id="capBtn" type="button" class="result_option capture_btn img-btn output-btn" onclick="capture_btn">
+                        <div id="capHover" class="hover-image">
+                            <!-- 호버 시에 나타날 이미지 -->
+                            <img class="hover-cap" src="/static/img/4_capture_download_btn_hover.png" alt="capture_description">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col"></div>
         </div>
+
     </div>
 
      <!--JS연결-->

@@ -34,7 +34,7 @@ input.title-insert {
     font-weight: bold;
   }
 
-input.img-btn {
+input.enter-btn {
     background: url(/static/img/2_1_enter_btn.png) no-repeat;
     width: 135px;
     height: 100px;
@@ -51,6 +51,14 @@ input.img-btn {
     margin: -12px;
 }
 
+.simply-box {
+    background-color: #3C3A44; 
+    width: 106%; 
+    max-width: 120%; 
+    margin-left: -3%; 
+    margin-right: 3%;
+}
+
 .sub5 {
     position: relative;
     top: 12px;
@@ -59,12 +67,11 @@ input.img-btn {
     color: #a8a8a8;
     font-size: 20px;
 }
-summary::marker{ /*토글*/
+summary::marker {
     color: #9747ff;
-    transform: scale(3);
+    transform: translate(50px, 50px); /* 가로로 50px, 세로로 50px 이동 */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
 }
-
 summary{
     font-size: 20px;
     font-weight: 600;
@@ -73,15 +80,17 @@ summary{
 }
 
 .songbox p{
-    font-size: 15px;
+    font-size: 20px;
     color:white;
     margin: 3px;
 }
 
-.custom-checkbox input{
+.checkbox{
     transform: scale(1.5);
     margin-left: -25px;
+    margin-top: 20px;
 }
+
 
 /* 슬라이드 바 공통 스타일 */
 input[type=range] {
@@ -138,6 +147,7 @@ input[type=range]::-webkit-slider-thumb {
     width: 872px; 
     height: 87px; 
     margin: 0 auto; /* 가운데 정렬을 위해 auto 값을 사용 */
+    margin-top: 30px;
 }
 
 .slider-container {
@@ -194,6 +204,53 @@ input.generate-btn {
     height: 100px;
     margin: 0 auto;
     position: relative;
-    margin-top: 300px;
+    margin-top: 200px;
     left: 0px;
   }
+
+.submit-btn{
+    width: 320px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.custom-checkbox details {
+    display: flex 1;
+    align-items: center;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+}
+
+.custom-checkbox {
+    display: flex; /* 요소를 수평으로 배치 */
+    align-items: center; /* 요소를 수직 가운데 정렬 */
+}
+
+.custom-checkbox input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-left: -25px;
+    margin-top: 0; /* 기존의 margin-top 제거 */
+}
+
+summary::marker {
+    display: none; /* 기본 marker 숨김 */
+    /* 원하는 marker 스타일을 여기에 추가하세요 */
+}
+
+.summary {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-left: 10px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-left: -25px;
+}

@@ -1,2 +1,5 @@
 0_data/**
 results/**
+*.json
+*.h5
+*.zip

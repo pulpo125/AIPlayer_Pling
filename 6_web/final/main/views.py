@@ -64,13 +64,16 @@ def loading(request):
         rec_song, rec_tag = recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=88146)
         print('recommend')
         # # 유사도 적용
-        sim_reco_song  = apply_sim(similarity, input_song, rec_song, song_num)
+        sim_rec_song  = apply_sim(similarity, input_song, rec_song, song_num)
         print('유사도')
     # DB 저장
     str_tag = ', '.join(rec_tag)
     user_id = UserLog.objects.last().user_id
-    UserLog.objects.filter(user_id=user_id).update(user_song_id_lst = sim_reco_song, user_tag_lst = str_tag)
+    UserLog.objects.filter(user_id=user_id).update(user_song_id_lst = sim_rec_song, user_tag_lst = str_tag)
     print('DB저장')
+
+    # 이미지 생성
+    user_title = UserLog.objects.last().user_title
     return render(request, '3_loading.html')
 
 

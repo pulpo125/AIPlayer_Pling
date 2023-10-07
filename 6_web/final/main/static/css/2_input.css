@@ -252,3 +252,12 @@ summary::marker {
 .ply-box{
     width: 100%;
 }
+
+.loading-style{
+    margin-top: 40px;
+}
+
+.load-text {
+    font-size: 25px;
+    font-weight: bold;
+}

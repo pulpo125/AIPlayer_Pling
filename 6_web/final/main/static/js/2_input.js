@@ -1,3 +1,14 @@
+// 로딩 중 구현
+$( document ).ready(function() {
+    $(document).ajaxStart(function () {
+        $('#loading').show(); // ajax 시작 -> 로딩바 표출
+    });
+
+    $(document).ajaxStop(function () {
+        $('#loading').hide(); // ajax 끝 -> 로딩바 히든
+    });
+});
+
 // Enter 버튼 클릭 시
 function enterBtn() {
     // show div
@@ -24,7 +35,6 @@ function enterBtn() {
 
         success: function (response) {
             var sim_ply_info = response["sim_ply_info"];
-            var ply_title = sim_ply_info[1]['ply_title'];
 
             var newHtml = ''
             for (const info of sim_ply_info) {
@@ -42,7 +52,13 @@ function enterBtn() {
             }
 
             $("#plyContent").html(newHtml);
-        }
+        },
+        // beforeSend: function () {
+
+        // },
+        // complete: function() {
+
+        // }
     });
 }
 

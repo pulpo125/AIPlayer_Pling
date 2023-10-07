@@ -12,5 +12,15 @@ body{
 .logo3 {
     width: 300px;
     height: auto;
-    margin: 120px;
+    margin: 240px 0px 40px;
+}
+
+.loading-title {
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.loading-p {
+    font-size: 25px;
+    margin: 10px 0;
 }

@@ -13,8 +13,9 @@
     </head>
     <style>
         .custom-spinner {
-            width: 4rem; /* 원하는 크기로 조절합니다. */
-            height: 4rem; /* 원하는 크기로 조절합니다. */
+            width: 4rem; 
+            height: 4rem; 
+            margin-bottom: 18px;
         }
     </style>
 <body>
@@ -24,14 +25,26 @@
             <div class="col-12 text-center">
                 <img class="logo3" src="/static/img/1_1_logo.png" alt="logo_img3">
                 <div class="d-flex flex-column align-items-center">
-                    <div class="spinner-border spinner" role="status">
+                    <h2 class="mt-4 loading-title">AI가 플레이리스트를 만들고 있어요</h2>
+                    <div class="spinner-border spinner custom-spinner" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
-                    <p class="mt-4">AI가 플레이리스트를 만들고 있어요</p>
+                    <p class="mt-4 loading-p" id="RecLoad" style="display: none;">추천 결과 생성 중...</p>
+                    <p class="mt-4 loading-p" id="RecEnd" style="display: none;">추천 결과 생성 완료</p>
+                    <p class="mt-4 loading-p" id="ImgLoad" style="display: none;">이미지 생성 중...</p>
+                    <p class="mt-4 loading-p" id="ImgEnd" style="display: none;">이미지 생성 완료</p>
                 </div>
             </div>
             <div class="col"></div>
         </div>
     </div>
+    <script>
+        function redirectToOutput() {
+            // 페이지 넘어가기
+            window.location.href = "{% url 'output' %}";
+        }
+        setTimeout(redirectToOutput, 21000); // 20초 후 실행
+    </script>
+    <script src="{% static 'js/3_loading.js' %}"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+// Enter 버튼 클릭 시
 function enterBtn() {
     // show div
     const showdiv = document.getElementById("showBox")
@@ -45,6 +46,7 @@ function enterBtn() {
     });
 }
 
+// 슬라이드 바
 var slider1 = document.getElementById("mySlider1");
 var sliderValueDisplay1 = document.getElementById("sliderValueDisplay1");
 var slider2 = document.getElementById("mySlider2");

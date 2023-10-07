@@ -1,32 +1,28 @@
+// 썸네일 이미지 다운로드 
 function downloadImage() {
-    // 이미지 파일 URL 설정 
     var imageUrl = '/static/result/test.png';  
 
-    // 새로운 <a> 요소를 동적으로 생성하여 이미지 다운로드 링크 생성
     var a = document.createElement('a');
     a.href = imageUrl;  // 이미지 파일 URL을 링크의 href 속성에 설정
     a.download = 'test.png';  // 다운로드할 파일 이름 설정
     a.style.display = 'none';  // 화면에 표시하지 않도록 설정
 
-    // <a> 요소를 body에 추가하여 클릭 이벤트를 발생
     document.body.appendChild(a);
     a.click();
 
-    // <a> 요소를 삭제
     document.body.removeChild(a);
-
-    // 데이터 URL 출력 (확인용)
-    console.log('Data URL:', imageUrl);
 }
+
+// 화면 캡처 다운로드
 function captureAndDownload() {
-    // 현재 화면 전체를 캡처하기 위해 document.body를 대상으로 설정
+    
     html2canvas(document.body, {
         scrollX: 0, // 가로 스크롤을 없애기 위해 0으로 설정
         scrollY: 0, // 세로 스크롤을 없애기 위해 0으로 설정
         windowWidth: document.documentElement.offsetWidth, // 화면 너비 설정
         windowHeight: document.documentElement.offsetHeight, // 화면 높이 설정
     }).then(function (canvas) {
-        // 이미지 데이터를 URL로 변환
+        
         var image = canvas.toDataURL("image/png");
 
         // 이미지 다운로드 링크를 생성
@@ -44,17 +40,47 @@ function captureAndDownload() {
     });
 }
 
-const imgbtn = document.querySelector('#likeBtn');
-const imghover = document.querySelector('#likeHover');
 
-imgbtn.addEventListener('mouseenter', () => {
-    imghover.style.opacity = '1'; // mousehover시 이미지가 나타남
+//  좋아요 버튼 클릭 시
+function likePlaylist() {
+
+    $.ajax({
+        url: "like_ply",
+        method: "POST",
+        dataType: "json", 
+        data: {
+            csrfmiddlewaretoken: "{{ csrf_token }}"
+        },
+        success: function (data) {
+            if (data.success) {
+                alert("좋아요가 반영 되었습니다!");
+            } else {
+                alert("좋아요를 반영 중 오류가 발생했습니다.");
+            }
+        },
+        error: function() {
+            // 요청이 실패한 경우 실행할 코드
+            alert("서버와 통신 중 오류가 발생했습니다.");
+        }
+    });
+
+    $('#likeForm').submit();
+}
+
+
+//  좋아요 버튼 마우스 오버
+const likeBtn = document.querySelector('#likeBtn');
+const likeHover = document.querySelector('#likeHover');
+
+likeBtn.addEventListener('mouseenter', () => {
+    likeHover.style.opacity = '1'; // mousehover시 이미지가 나타남
 });
 
-imgbtn.addEventListener('mouseleave', () => {
-    imghover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
+likeBtn.addEventListener('mouseleave', () => {
+    likeHover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
 });
 
+//  썸네일 이미지 다운로드 버튼 마우스 오버
 const dwBtn = document.querySelector('#dwBtn');
 const dwHover = document.querySelector('#dwHover');
 
@@ -66,6 +92,7 @@ dwBtn.addEventListener('mouseleave', () => {
     dwHover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
 });
 
+//  캡처 버튼 마우스 오버
 const capBtn = document.querySelector('#capBtn');
 const capHover = document.querySelector('#capHover');
 

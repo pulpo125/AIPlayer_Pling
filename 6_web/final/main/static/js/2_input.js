@@ -45,55 +45,6 @@ function enterBtn() {
     });
 }
 
-
-function enterBtn() {
-    // show div
-    const showdiv = document.getElementById("showBox")
-
-    // 버튼 클릭 시 div가 나타나기
-    if (showdiv.style.display === "none") {
-        showdiv.style.display = "block"; // 보이게 설정
-    } else {
-        showdiv.style.display = "none"; // 숨김 설정
-    }
-
-    let newTitle = $("input[name='new_title']").val();
-
-    // AJAX 요청
-    $.ajax({
-        url: "similar_ply",
-        method: "POST",
-        dataType: 'json',
-        data: {
-            csrfmiddlewaretoken: "{{ csrf_token }}",  // CSRF 토큰 전달
-            new_title: newTitle
-        },
-
-        success: function (response) {
-            var sim_ply_info = response["sim_ply_info"];
-            var ply_title = sim_ply_info[1]['ply_title'];
-
-            var newHtml = ''
-            for (const info of sim_ply_info) {
-                newHtml += '<div id="ply_' + info['ply_id'] + '">'
-                    + '<input class="checkbox" type="checkbox" name="select_ply" value="' + info['ply_id'] + '"/>'
-                    + '<details>'
-                    + '<summary><p class="title">' + info['ply_title'] + '</p></summary>'
-                    + '<div class="songbox">';
-                for (const meta of info['song_meta']) {
-                    newHtml += '<p>' + meta["song_name"] + ' - ' + meta["artist_name"] + '</p>';
-                }
-                newHtml += '</div>'
-                + '</details>'
-                + '</div>';
-            }
-
-            $("#plyContent").html(newHtml);
-        }
-    });
-}
-
-
 var slider1 = document.getElementById("mySlider1");
 var sliderValueDisplay1 = document.getElementById("sliderValueDisplay1");
 var slider2 = document.getElementById("mySlider2");

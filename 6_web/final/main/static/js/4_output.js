@@ -1,11 +1,11 @@
 function downloadImage() {
     // 이미지 파일 URL 설정 
-    var imageUrl = '/static/result/pubao.jpg';  
+    var imageUrl = '/static/result/test.png';  
 
     // 새로운 <a> 요소를 동적으로 생성하여 이미지 다운로드 링크 생성
     var a = document.createElement('a');
     a.href = imageUrl;  // 이미지 파일 URL을 링크의 href 속성에 설정
-    a.download = 'pubao.jpg';  // 다운로드할 파일 이름 설정
+    a.download = 'test.png';  // 다운로드할 파일 이름 설정
     a.style.display = 'none';  // 화면에 표시하지 않도록 설정
 
     // <a> 요소를 body에 추가하여 클릭 이벤트를 발생
@@ -43,3 +43,36 @@ function captureAndDownload() {
         document.body.removeChild(a);
     });
 }
+
+const imgbtn = document.querySelector('#likeBtn');
+const imghover = document.querySelector('#likeHover');
+
+imgbtn.addEventListener('mouseenter', () => {
+    imghover.style.opacity = '1'; // mousehover시 이미지가 나타남
+});
+
+imgbtn.addEventListener('mouseleave', () => {
+    imghover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
+});
+
+const dwBtn = document.querySelector('#dwBtn');
+const dwHover = document.querySelector('#dwHover');
+
+dwBtn.addEventListener('mouseenter', () => {
+    dwHover.style.opacity = '1'; // mousehover시 이미지가 나타남
+});
+
+dwBtn.addEventListener('mouseleave', () => {
+    dwHover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
+});
+
+const capBtn = document.querySelector('#capBtn');
+const capHover = document.querySelector('#capHover');
+
+capBtn.addEventListener('mouseenter', () => {
+    capHover.style.opacity = '1'; // mousehover시 이미지가 나타남
+});
+
+capBtn.addEventListener('mouseleave', () => {
+    capHover.style.opacity = '0'; // 호버가 끝나면 이미지가 숨겨짐
+});

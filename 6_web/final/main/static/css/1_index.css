@@ -1,60 +1,60 @@
 .logo1 {
-    width: 300px;
-    height: auto;
-    margin: 120px;
+  width: 300px;
+  height: auto;
+  margin: 120px;
 }
 
 .sub1{
-    font-weight: bold;
-    text-align: center;
-    font-size: 40px;
-    margin: -75px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 40px;
+  margin: -75px;
 }
 
-  .title {
-    margin: 0px;
-    font-weight: bold;
-    font-size: 70px;
-    background: linear-gradient(to right,#d13f8f, #9747ff, #6d44b7, #ce4da4);
-    background-size: 200% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-fill-color: transparent;
-    animation: gradientAnimation 2.5s linear infinite; 
-  }
-  
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 100% 0;
-    }
-    100% {
-      background-position: -100% 0;
-    }
-  }
-
-  .sub2 {
-    position: relative;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    color: #a8a8a8;
+.title {
+  margin: 0px;
+  font-weight: bold;
+  font-size: 70px;
+  background: linear-gradient(to right,#d13f8f, #9747ff, #6d44b7, #ce4da4);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-fill-color: transparent;
+  animation: gradientAnimation 2.5s linear infinite; 
 }
-  
-input.start-btn {
-  background: url(/static/img/1_1_start_btn.png) no-repeat;
-  width: 320px;
-  height: 100px;
-  margin: 0 auto;
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.sub2 {
   position: relative;
-  top: -8spx;
-  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  color: #a8a8a8;
+}
+
+input.start-btn {
+background: url(/static/img/1_1_start_btn.png) no-repeat;
+width: 320px;
+height: 100px;
+margin: 0 auto;
+position: relative;
+top: -8spx;
+left: 0px;
 }
 
 .howtouse {
-  position: relative;
-  top: -15px;
-  left: 0px;
-  width: 100%;
-  height: auto;
+position: relative;
+top: -15px;
+left: 0px;
+width: 100%;
+height: auto;
 }

@@ -177,11 +177,6 @@ input[type=range]::-webkit-slider-thumb {
     /* overflow: hidden; 호버 이미지가 넘치지 않도록 설정 */
 }
 
-/* 메인 이미지 스타일 */
-#main-image {
-    object-fit: cover; /* 이미지가 컨테이너에 맞게 조절되도록 설정 */
-}
-
 /* 호버 이미지 스타일 (숨겨진 상태로 초기화) */
 .hover-image {
     width: 255px;
@@ -191,11 +186,6 @@ input[type=range]::-webkit-slider-thumb {
     left: -130px;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-}
-
-/* 첫 번째 이미지 호버 효과 */
-.slider-container .image-container:hover .hover-image {
-    opacity: 1;
 }
 
 input.generate-btn {
@@ -217,17 +207,16 @@ input.generate-btn {
 .custom-checkbox details {
     display: flex;
     align-items: center;
-    flex-grow: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 20px;
+}
+
+.custom-checkbox {
+    display: flex; /* 요소를 수평으로 배치 */
+    align-items: center; /* 요소를 수직 가운데 정렬 */
 }
 
 .custom-checkbox input[type="checkbox"] {
+    margin-right: 10px; /* 체크박스와 라벨 사이의 간격 설정 */
     transform: scale(1.5);
-    margin-left: -25px;
-    margin-top: 0; /* 기존의 margin-top 제거 */
 }
 
 summary::marker {

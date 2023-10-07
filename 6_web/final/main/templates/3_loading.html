@@ -2,30 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Player</title>
-
-    <link rel="stylesheet" href="{% static 'css/0_basic.css' %}">
-    <link rel="stylesheet" href="{% static 'css/3_loading.css' %}">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-</head>
-<body>
-    {% for meta in rec_song_meta%}
-       <p>{{ meta.song }} | {{ meta.artist }}</p>
-    {% endfor %}
-    
-    {% for tag in rec_tag%}
-        <p style="display: inline;">#{{ tag }} </p>
-    {% endfor %}
-</body>
-</html>
-<!-- 
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>AI Player</title>
@@ -58,4 +34,4 @@
         </div>
     </div>
 </body>
-</html> -->
+</html>

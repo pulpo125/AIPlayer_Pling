@@ -87,7 +87,7 @@
     </div>
 
     <!--유사 플리 리스트 헤드라인-->
-    <form method="post" action="{% url 'loading' %}">
+    <form method="post" action="{% url 'output' %}">
         {% csrf_token %}
         <div id="showBox" style="display: none;">
             <div class="container ply_lst_headline">
@@ -110,7 +110,7 @@
                     <div class="col-6 text-center simply-box">
                         <label id="plyContent">
                             <!-- 유사한 플리 리스트 생성 -->
-                            <div class="custom-checkbox text-center">
+                            <!-- <div class="custom-checkbox text-center">
                                 <input type="checkbox" name="select_ply" value="0"/>
                                 <details>
                                     <summary>입력한 제목과 유사한 플레이리스트 제목</summary>
@@ -121,7 +121,7 @@
                                         <p>SnowMan - Sia</p>
                                     </div>
                                 </details>
-                            </div>
+                            </div> -->
                         </label>
                     </div>
                     <div class="col"></div>
@@ -139,9 +139,9 @@
                         </div>
                     </div>
                     <p>유사도</p>
-                    <input type="range" name="similarity" min="0" max="100" value="50" class="slider" id="mySlider1">
+                    <input type="range" name="similarity" min="0" max="100" value="10" class="slider" id="mySlider1">
                     </div>
-                    <span id="sliderValueDisplay1">50</span>
+                    <span id="sliderValueDisplay1">10</span>
             
                     <div class="slider-container">
                     <div class="image-container">
@@ -160,13 +160,6 @@
                     <input type="submit" value="" class="img-btn generate-btn" onclick="location.href='/loading/'"> 
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="col"></div>
-                <div class="col-12 text-center">
-                    <input type="submit" class="img-btn generate-btn" onclick="location.href='/loading/'">
-                </div>
-                <div class="col"></div>
-            </div> -->
         </div>
     </form>
      <!--JS연결-->

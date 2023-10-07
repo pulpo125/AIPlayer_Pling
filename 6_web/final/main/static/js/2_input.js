@@ -27,10 +27,10 @@ function enterBtn() {
 
             var newHtml = ''
             for (const info of sim_ply_info) {
-                newHtml += '<div id="ply_' + info['ply_id'] + '">'
+                newHtml += '<div id="ply_' + info['ply_id'] + '" class="ply-box">'
                     + '<input class="checkbox" type="checkbox" name="select_ply" value="' + info['ply_id'] + '"/>'
-                    + '<details>'
-                    + '<summary><p class="title">' + info['ply_title'] + '</p></summary>'
+                    + '<details class="detail-box">'
+                    + '<summary class="summary"><p class="title">' + info['ply_title'] + '</p></summary>'
                     + '<div class="songbox">';
                 for (const meta of info['song_meta']) {
                     newHtml += '<p>' + meta["song_name"] + ' - ' + meta["artist_name"] + '</p>';

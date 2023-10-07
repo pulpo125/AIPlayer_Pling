@@ -65,26 +65,18 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-12 text-center result_tags">
-                <p>#pop</p>
-                <p>#white christmas</p>
-                <p>#christmas carol</p>
+                {% for tag in rec_tag%}
+                    <p style="display: inline;">#{{ tag }} </p>
+                {% endfor %}
             </div>
             <div class="col"></div>
         </div>
         <div class="row">
             <div class="col"></div>
             <div class="col-12 result_songs">
-                <p>크리스마스1 - 비투비</p>
-                <p>크리스마스2 - 소녀시대</p>
-                <p>크리스마스3 - 스테이시</p>
-                <p>크리스마스4 - 빅뱅</p>
-                <p>크리스마스5 - 악뮤</p>
-                <p>크리스마스6 - 아이유</p>
-                <p>크리스마스7 - 마마무</p>
-                <p>크리스마스8 - 아이브</p>
-                <p>크리스마스9 - 에스파</p>
-                <p>크리스마스10 - 엔믹스</p>
-                <p>크리스마스11- 세븐틴</p>
+                {% for meta in rec_song_meta%}
+                    <p>{{ meta.song }} | {{ meta.artist }}</p>
+                {% endfor %}
             </div>
             <div class="col"></div>
         </div>
@@ -103,7 +95,7 @@
         
                 <div class="col-12 col-md-4"> <!-- 다운로드 버튼 -->
                     <div class="btn">
-                        <input id="dwBtn" type="button" class="result_option download_btn img-btn output-btn" onclick="download_btn">
+                        <input id="dwBtn" type="button" class="result_option download_btn img-btn output-btn" onclick="downloadImage()">
                         <div id="dwHover" class="hover-image">
                             <!-- 호버 시에 나타날 이미지 -->
                             <img class="hover-dw" src="/static/img/4_img_download_btn_hover.png" alt="download_description">
@@ -113,7 +105,7 @@
         
                 <div class="col-12 col-md-4"> <!-- 캡쳐 버튼 -->
                     <div class="btn">
-                        <input id="capBtn" type="button" class="result_option capture_btn img-btn output-btn" onclick="capture_btn">
+                        <input id="capBtn" type="button" class="result_option capture_btn img-btn output-btn" onclick="captureAndDownload()">
                         <div id="capHover" class="hover-image">
                             <!-- 호버 시에 나타날 이미지 -->
                             <img class="hover-cap" src="/static/img/4_capture_download_btn_hover.png" alt="capture_description">

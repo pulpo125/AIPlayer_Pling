@@ -17,7 +17,7 @@ def cos_sim(A, B):
 
 # 임베딩 값 str -> array로 변환
 def emd_to_array(ply_title_embedding):
-   emd_array = ply_title_embedding.apply(lambda x: np.fromstring(x['ply_title_emd'].strip('[]'),dtype=float, sep=' '), axis=1)
+   emd_array = ply_title_embedding.apply(lambda x: np.fromstring(x['ply_title_emd'],dtype=float, sep=','), axis=1)
    return emd_array
 
 # 가장 유사한 플레이리스트 id list 추출하는 함수

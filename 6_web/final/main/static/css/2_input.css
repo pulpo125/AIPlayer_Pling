@@ -32,6 +32,7 @@ input.title-insert {
     font-size: 31px;
     color: #a8a8a8;
     font-weight: bold;
+    padding: 0px 0px 10px 50px;
   }
 
 input.enter-btn {
@@ -57,6 +58,7 @@ input.enter-btn {
     max-width: 120%; 
     margin-left: -3%; 
     margin-right: 3%;
+    padding: 50px 0px;
 }
 
 .sub5 {
@@ -225,7 +227,7 @@ summary::marker {
 }
 
 .summary {
-    display: flex;
+    display: inline;
     align-items: center;
     font-size: 20px;
     font-weight: 600;
@@ -234,7 +236,19 @@ summary::marker {
 }
 
 .checkbox {
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
     margin-left: -25px;
+}
+
+.detail-box{
+    display: inline;
+}
+
+#plyContent{
+    width: 100%;
+}
+
+.ply-box{
+    width: 100%;
 }

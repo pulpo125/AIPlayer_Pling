@@ -23,7 +23,7 @@ def similar_ply(request):
         # 가장 유사한 플레이리스트 id list 추출
         ply_title_embedding = pd.DataFrame(list(PlyTitleEmbedding.objects.all().values()))
         ply_title_embedding['ply_title_emd'] = emd_to_array(ply_title_embedding)
-        sim_ply_id = get_sim_ply_id(ply_title_embedding, new_embedding, n=2)
+        sim_ply_id = get_sim_ply_id(ply_title_embedding, new_embedding, n=3)
         
         # 유사 플리 정보 조회
         sim_ply_info = []
@@ -52,16 +52,25 @@ def similar_ply(request):
         # 예외가 발생한 경우 오류 응답을 반환합니다.
         return JsonResponse({"error": str(e)}, status=500)
 
-
 def loading(request):
+    return render(request, "3_loading.html")
+
+# def output(request):
+#     return render(request, "4_output.html")
+
+def output(request):
     if request.method == 'POST':
         # POST 요청으로 전송된 데이터 받기
         select_ply_lst = request.POST.getlist('select_ply') 
         similarity = request.POST.get('similarity', '')  # 슬라이더의 값을 가져옴
         song_num = request.POST.get('song_num', '')      # 슬라이더의 값을 가져옴
+        
+        similarity = int(similarity)
+        song_num = int(song_num)
 
         input_song, input_tag, input_onehot = ply_to_onehot(select_ply_lst)
-        rec_song, rec_tag = recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=22798)
+
+        rec_song, rec_tag = recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=88146)
 
         # # 유사도 적용
         sim_reco_song  = apply_sim(similarity, input_song, rec_song, song_num)
@@ -72,7 +81,4 @@ def loading(request):
             queryset = SongMeta.objects.filter(song_id=rec_song_id).values('song_name', 'artist_name_lst')
             rec_song_meta.append({'song':queryset[0]['song_name'], 'artist':queryset[0]['artist_name_lst']})
     
-    return render(request, '3_loading.html', context={'rec_song_meta': rec_song_meta, 'rec_tag': rec_tag})
-
-def output(request):
-    return render(request, "4_output.html")
+    return render(request, '4_output.html', context={'rec_song_meta': rec_song_meta, 'rec_tag': rec_tag})

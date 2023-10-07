@@ -30,9 +30,9 @@ def load_json(fname):
 # data load
 path = os.getcwd()
 path = path + '\\main\\ai\\data\\'
-data_path = path + 'data.json'
+data_path = path + 'cnt3_playlists.json'
 mfl_col_path = path + 'mfl_col.pkl'
-model_path = path + 'model_7.h5'
+model_path = path + 'model_ad_e30.h5'
 
 with open(mfl_col_path, 'rb') as f: # 사용 feature
     features = pickle.load(f)
@@ -72,7 +72,7 @@ def remove_seen(seen, l):
     seen = set(seen)
     return [x for x in l if not (x in seen)]
 
-def recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=22798):
+def recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=88146):
     # predict
     predict_plist = autoencoder.predict(input_onehot)
 

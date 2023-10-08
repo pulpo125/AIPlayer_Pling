@@ -3,3 +3,4 @@ results/**
 *.json
 *.h5
 *.zip
+sd_env/

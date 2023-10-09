@@ -18,25 +18,14 @@
     width: 80%;
     height: auto;
 }
-
-.result_section {
-    border-radius: 122px;
-    border: 10px solid  #f7e6e6a3;
-    padding: 145px;
-    padding-bottom: 213px;
-    border-image-slice: 1;
-    margin-top: -109px;
-    /* border-image-source: linear-gradient(to right, #d13f8f, #9747ff, #6d44b7, #ce4da4); */
-}
-
-.result_img{
+.result_img {
     position: relative;
     top: -75px;
     left: 0px;
-    width: 80%;
+    width: 70%;
     height: auto;
-    margin-top: 12px;
-    margin-bottom: -46px;
+    margin-top: 123px;
+    margin-bottom: -7px;
 }
 .result_title h2{
     font-weight: 800;
@@ -69,8 +58,8 @@
     position: relative;
     color: white;
     margin-top: 28px;
-    margin-right: 111px;
-    margin-left: 92px;
+    margin-right: 282px;
+    margin-left: 285px;
 }
 
 .result_option{
@@ -84,6 +73,7 @@ input.output-btn{
     width: 100px;
     height: 100px;
     position: relative;
+    margin-left: 140px;
 }
 
 
@@ -92,17 +82,6 @@ input.output-btn{
     position: relative;
     /* overflow: hidden; 호버 이미지가 넘치지 않도록 설정 */
 }
-
-/* 호버 이미지 스타일 (숨겨진 상태로 초기화) */
-/* .hover-image {
-    width: 255px;
-    height: 140px;
-    position: absolute;
-    top: 35px;
-    left: -130px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-} */
 
 input.like_btn {
     background: url(/static/img/4_like_btn.png) no-repeat;
@@ -156,4 +135,17 @@ input.capture_btn {
 .hover-cap{
     margin-top: 117px;
     margin-left: 817px;
+}
+
+.result_section {
+    border: 7px solid #f7e6e6a3;
+    border-radius: 54px;
+    padding: 3px;
+    margin-top: -110px;
+    height: 1760px;
+    width: 1060px;
+}
+
+.result_section {
+    border-top: 7px solid #f7e6e6a3;
 }

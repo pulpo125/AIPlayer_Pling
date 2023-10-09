@@ -58,3 +58,8 @@ left: 0px;
 width: 100%;
 height: auto;
 }
+
+.container {
+  padding: 50px; /* 두 번째 HTML 파일과 일치하도록 패딩을 조정하세요 */
+  margin: 0 auto; /* 컨테이너를 수평으로 가운데 정렬합니다 */
+}

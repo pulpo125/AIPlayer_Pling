@@ -1,10 +1,10 @@
 // 썸네일 이미지 다운로드 
 function downloadImage() {
-    var imageUrl = '/static/result/test.png';  
+    var imageUrl = '/static/result/result_img.png';  
 
     var a = document.createElement('a');
     a.href = imageUrl;  // 이미지 파일 URL을 링크의 href 속성에 설정
-    a.download = 'test.png';  // 다운로드할 파일 이름 설정
+    a.download = 'result_img.png';  // 다운로드할 파일 이름 설정
     a.style.display = 'none';  // 화면에 표시하지 않도록 설정
 
     document.body.appendChild(a);

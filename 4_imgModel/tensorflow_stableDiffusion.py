@@ -1,12 +1,16 @@
 # https://github.com/divamgupta/stable-diffusion-tensorflow.git
 # pip install git+https://github.com/divamgupta/stable-diffusion-tensorflow
-# tensorflow==2.10.0
+# tensorflow==2.13.0
 # h5py==3.7.0
 # Pillow==9.2.0
 # tqdm==4.64.1
 # ftfy==6.1.1
 # regex==2022.9.13
 # tensorflow-addons==0.17.1
+# pip install opencv-python
+import os
+os.environ['TF_ENABLE_ONEDNN_OPTS']='0'
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 from tensorflow import keras
 from stable_diffusion_tf.stable_diffusion import StableDiffusion
@@ -93,9 +97,9 @@ img = generator.generate(
     batch_size=1,
     seed=args.seed,
 )
+
 pnginfo = PngInfo()
 pnginfo.add_text('prompt', args.prompt)
-# Image.fromarray(img[0]).save(args.output, pnginfo=pnginfo)
 resized_img = Image.fromarray(img[0]).resize((1280, 720))
 resized_img.save(args.output, pnginfo=pnginfo)
 print(f"saved at {args.output}")

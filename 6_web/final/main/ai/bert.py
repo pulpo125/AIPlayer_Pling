@@ -4,7 +4,8 @@ import numpy as np
 from numpy import dot
 from numpy.linalg import norm
 
-model = SentenceTransformer('sentence-transformers/xlm-r-100langs-bert-base-nli-stsb-mean-tokens')
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+# model = SentenceTransformer('sentence-transformers/xlm-r-100langs-bert-base-nli-stsb-mean-tokens')
 
 # title -> embedding 변환
 def encoding(new_title):

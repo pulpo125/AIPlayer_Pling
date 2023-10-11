@@ -53,12 +53,6 @@ function enterBtn() {
 
             $("#plyContent").html(newHtml);
         },
-        // beforeSend: function () {
-
-        // },
-        // complete: function() {
-
-        // }
     });
 }
 
@@ -90,4 +84,3 @@ slider2.addEventListener('input', function() {
     sliderValueDisplay2.innerText = sliderValue2;
     console.log("슬라이더 2 값이 변경됨:", sliderValue2);
 });
-

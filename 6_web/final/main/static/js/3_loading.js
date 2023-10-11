@@ -3,9 +3,9 @@
 //     // 페이지 리디렉션
 //     window.location.href = "{% url 'output' %}";
 // }
-
 // // 페이지 로딩이 완료되면 redirectToOutput 함수를 호출하여 리디렉션 수행
 // window.onload = redirectToOutput;
+
 const RecLoad = document.getElementById("RecLoad")
 const RecEnd = document.getElementById("RecEnd")
 const ImgLoad = document.getElementById("ImgLoad")

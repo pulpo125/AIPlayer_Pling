@@ -5,6 +5,7 @@ from django.utils import timezone
 from main.ai.autoencoder import ply_to_onehot, recommendation, apply_sim
 from main.models import PlyMeta, SongMeta, SongInPly, PlyTitleEmbedding, UserLog
 from main.ai.bert import encoding, get_sim_ply_id, emd_to_array
+from main.ai.stableDiffusion import title2prompt, generateImg
 import pandas as pd
 import ast
 
@@ -60,20 +61,21 @@ def loading(request):
         song_num = int(song_num)
 
         input_song, input_tag, input_onehot = ply_to_onehot(select_ply_lst)
-        print('onehot')
+    
         rec_song, rec_tag = recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=88146)
-        print('recommend')
         # # 유사도 적용
         sim_rec_song  = apply_sim(similarity, input_song, rec_song, song_num)
-        print('유사도')
+
     # DB 저장
     str_tag = ', '.join(rec_tag)
     user_id = UserLog.objects.last().user_id
     UserLog.objects.filter(user_id=user_id).update(user_song_id_lst = sim_rec_song, user_tag_lst = str_tag)
-    print('DB저장')
 
     # 이미지 생성
     user_title = UserLog.objects.last().user_title
+    prompt_str = title2prompt(user_title)
+    generateImg(prompt_str)
+    
     return render(request, '3_loading.html')
 
 

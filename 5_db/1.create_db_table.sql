@@ -3,8 +3,6 @@ create user 'django'@'%' identified by 'root1234';
 grant all privileges on *.* to 'django'@'%' with grant option;
 flush privileges;
 
--- drop database finald; 
-
 use finaldb;
 create table ply_meta(
 	ply_id int not null primary key,
@@ -15,16 +13,9 @@ create table ply_meta(
 );
 
 create table ply_title_embedding(
-	ply_title_embedding_id int not null primary key auto_increment,
+	emd_id int not null primary key auto_increment,
 	ply_id int not null,
     ply_title_emd TEXT,
-    FOREIGN KEY(ply_id) REFERENCES ply_meta(ply_id)
-);
-
-create table ply_img(
-	ply_img_id int not null primary key auto_increment,
-	ply_id int not null,
-    ply_img blob,
     FOREIGN KEY(ply_id) REFERENCES ply_meta(ply_id)
 );
 
@@ -36,8 +27,19 @@ create table song_meta(
 );
 
 create table song_in_ply(
-	ply_id int not null,
-    song_id int not null,
-    CONSTRAINT song_in_ply_id PRIMARY KEY(ply_id, song_id),
+	songinply_id int not null primary key auto_increment,
+	ply_id int,
+    song_id int,
+    FOREIGN KEY(ply_id) REFERENCES ply_meta(ply_id),
     FOREIGN KEY(song_id) REFERENCES song_meta(song_id)
+);
+
+create table user_log(
+	user_id int not null primary key auto_increment,
+    user_title VARCHAR(500),
+    user_title_embedding TEXT,
+    user_song_id_lst TEXT,
+    user_tag_lst TEXT,
+    user_updt VARCHAR(100),
+    user_like_cnt int
 );

@@ -1,2 +1,9 @@
+# 대용량 파일 ignore
 0_data/**
 results/**
+*.json
+*.h5
+*.zip
+
+# 가상 환경 ignore
+sd_env/

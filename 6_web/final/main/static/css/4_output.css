@@ -1,0 +1,148 @@
+.logo4 {
+    width: 300px;
+    height: auto;
+    margin: 120px;
+}
+.sub3 {
+    position: relative;
+    top: -75px;
+    width: 100%;
+    height: 100%;
+    color: #a8a8a8;
+}
+
+.headline {
+    position: relative;
+    top: -130px;
+    left: 0px;
+    width: 80%;
+    height: auto;
+}
+
+.result_section {
+    border-radius: 122px;
+    border: 10px solid  #f7e6e6a3;
+    padding: 145px;
+    padding-bottom: 213px;
+    border-image-slice: 1;
+    margin-top: -109px;
+}
+
+.result_img{
+    position: relative;
+    top: -75px;
+    left: 0px;
+    width: 80%;
+    height: auto;
+    margin-top: 12px;
+    margin-bottom: -46px;
+}
+
+
+.result_title h2{
+    font-weight: 800;
+    font-size: 38px;
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 56px;
+}
+
+.result_tags p {
+    background-color: #e738ad94;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 24px;
+    position: relative;
+    color: white;
+    margin-top: -68px;
+    margin-right: 23px;
+    margin-bottom: 21px;
+    padding: 10px 20px;
+}
+
+.result_songs p {
+    background-color: #9747ff53;
+    border-radius: 10px;
+    padding: 8px 76px;
+    margin: 26px;
+    font-size: 25px;
+    position: relative;
+    color: white;
+    margin-top: 28px;
+    margin-right: 111px;
+    margin-left: 92px;
+}
+
+.result_option{
+    margin-top: 41px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: -98px;
+}
+
+input.output-btn{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+
+/* 기본 이미지 컨테이너 스타일 */
+.bottom_btns {
+    position: relative;
+}
+
+input.like_btn {
+    background: url(/static/img/4_like_btn.png) no-repeat;
+  }
+
+input.download_btn {
+    background: url(/static/img/4_image_download_btn.png) no-repeat;
+}
+
+input.capture_btn {
+    background: url(/static/img/4_capture_download_btn.png) no-repeat;
+}
+
+#likeHover{
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+}
+
+#dwHover{
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+}
+
+#capHover{
+    width: 255px;
+    height: 140px;
+    position: absolute;
+    top: 35px;
+    left: -130px;
+    opacity: 0;
+}
+
+.hover-like{
+    margin-top: 117px;
+    margin-left: 139px;
+}
+
+.hover-dw{
+    margin-top: 117px;
+    margin-left: 477px;;
+}
+
+.hover-cap{
+    margin-top: 117px;
+    margin-left: 817px;
+}

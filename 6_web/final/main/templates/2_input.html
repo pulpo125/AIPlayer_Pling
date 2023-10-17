@@ -4,13 +4,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Player</title>
 
-    <link rel="stylesheet" href="{% static 'css/0_basic.css' %}">
-    <link rel="stylesheet" href="{% static 'css/2_input.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/0_basic.css' %}?after">
+    <link rel="stylesheet" href="{% static 'css/2_input.css' %}?after">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    
+        .custom-checkbox {
+            display: flex; /* 요소를 수평으로 배치 */
+            align-items: center; /* 요소를 수직 가운데 정렬 */
+        }
+    
+        .custom-checkbox details {
+            flex: 1; /* 나머지 공간을 확장하여 써머리와 상자를 한 줄에 배치 */
+            white-space: nowrap; /* 텍스트가 넘칠 경우 줄 바꿈 방지 */
+            overflow: hidden; /* 넘칠 경우 숨김 처리 */
+            text-overflow: ellipsis;
+            margin-bottom: 20px;
+        }
+    
+        .ply_lst_headline {
+            background-color: #222121;
+            padding: 100px;
+            width: 50%;
+            border-radius: 10px;
+            margin-top: -100px;
+        }
+    
+        .col-6 {
+            border-radius: 10px; /* 둥근 모서리 반지름 설정 */
+            background-color: #726C86; /* 배경 색상 설정 */
+        }
+
+        .custom-spinner {
+            width: 4rem; 
+            height: 4rem; 
+        }
+    </style>
 </head>
 <body>
+    <!--input top-->
+    <div class="container ">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-12 text-center">
+                <img class="logo2" src="/static/img/1_1_logo.png" alt="logo_img2">
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-12 text-center">
+                <p class="sub3">만들고 싶은 플레이리스트 제목을 입력해주세요<br>제목을 입력하시면 유사한 플레이리스트가 나타날거예요</p></br>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-12 text-center">
+                <img class="headline" src="/static/img/2_1_headline.png" alt="headline">
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
 
+    <!--제목 입력 버튼-->
+    <div class="container ">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-12 text-center background-img">
+                <form action="{% url 'input' %}" method="post" id="titleForm">
+                    {% csrf_token %}
+                    <input type="text" class="title-insert" name="new_title">
+                    <input type="button" class="img-btn enter-btn" onclick="enterBtn()" value="">
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <!--유사 플리 리스트 헤드라인-->
+    <form method="post" action="{% url 'loading' %}">
+        {% csrf_token %}
+        <div id="showBox" style="display: none;">
+            <div class="container ply_lst_headline">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-12 text-center">
+                        <p class="sub4">유사한 플레이리스트</p></br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-12 text-center">
+                        <p class="sub5">입력한 제목과 유사한 플레이리스트예요</br>나만의 플레이리스트의 분위기와 비슷한 분위기를 가진 플레이리스트를</br>선택하시면 더 정확한 추천을 해드릴 수 있어요</p></br>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-6 text-center simply-box">
+                        <!-- 로딩 창 -->
+                        <div id="loading" class="flex-column align-items-center loading-style" style="display: none;">
+                            <div class="spinner-border spinner custom-spinner" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="mt-4 load-text">로딩 중 입니다...</p>
+                        </div>
+                        
+                        <label id="plyContent">
+                            <!-- 유사한 플리 리스트 생성 -->
+                        </label>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <!-- 슬라이드 바 -->
+            <div>
+                <div id="inputBottom" class="slideBar">
+                    <div class="slider-container">
+                        <!-- 유사도 -->
+                    <div class="image-container">
+                        <img src="/static/img/2_2_question_mark.png" alt="question_mark">
+                        <div class="hover-image">
+                        <!-- 호버 시에 나타날 이미지 -->
+                        <img src="/static/img/2_2_similarity_explanation.png" alt="your_hover_image">
+                        </div>
+                    </div>
+                    <p>유사도</p>
+                    <input type="range" name="similarity" min="0" max="100" value="10" class="slider" id="mySlider1">
+                    </div>
+                    <span id="sliderValueDisplay1">10</span>
+                    
+                    <!-- 곡 개수 -->
+                    <div class="slider-container">
+                    <div class="image-container">
+                        <img src="/static/img/2_2_question_mark.png" alt="question_mark">
+                        <div class="hover-image">
+                        <!-- 호버 시에 나타날 이미지 -->
+                        <img src="/static/img/2_2_song_count_explanation.png" alt="your_hover_image">
+                        </div>
+                    </div>
+                    <p>곡 개수</p>
+                    <input type="range" name="song_num" min="5" max="20" value="10" class="slider" id="mySlider2">
+                    </div>
+                    <span id="sliderValueDisplay2">10</span>
+                </div>
+                <!-- 생성 버튼 -->
+                <div class="submit-btn">
+                    <input type="submit" value="" class="img-btn generate-btn" onclick="location.href='/loading/'"> 
+                    <!-- <input type="submit" value="" class="img-btn generate-btn" onclick="generateBtn()">  -->
+                </div>
+            </div>
+        </div>
+    </form>
+     <!--JS연결-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="{% static 'js/2_input.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

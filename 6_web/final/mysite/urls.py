@@ -24,8 +24,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('input/', views.input, name='input'),
+    path('input/similar_ply', views.similar_ply, name='similar_ply'),
     path('loading/', views.loading, name='loading'),
+    path('loading/recAI', views.recAI, name='recAI'),
+    path('loading/imageAI', views.imageAI, name='imageAI'),
     path('output/', views.output, name='output'),
+    path('output/like_ply', views.like_ply, name='like_ply'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

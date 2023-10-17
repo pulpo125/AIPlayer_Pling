@@ -49,3 +49,16 @@ class SongMeta(models.Model):
     class Meta:
         managed = False
         db_table = 'song_meta'
+
+class UserLog(models.Model):
+    user_id = models.AutoField(primary_key=True)
+    user_title = models.CharField(max_length=500, blank=True, null=True)
+    user_title_embedding = models.TextField(blank=True, null=True)
+    user_song_id_lst = models.TextField(blank=True, null=True)
+    user_tag_lst = models.TextField(blank=True, null=True)
+    user_updt = models.CharField(max_length=100, blank=True, null=True)
+    user_like_cnt = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'user_log'

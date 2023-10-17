@@ -1,0 +1,15 @@
+body{
+    /* width: 1920px; */
+    background-color: #0A0909;
+    color: white;
+}
+
+input.img-btn{
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+p, span{
+    font-size: 20px;
+}

@@ -21,28 +21,37 @@ def write_json(data, fname):
         json_str = json.dumps(data, ensure_ascii=False, default=_conv)
         f.write(json_str)
         
+
 def load_json(fname):
     with open(fname, encoding='utf-8') as f:
         json_obj = json.load(f)
 
     return json_obj
 
+
 # data load
 path = os.getcwd()
-path = path + '\\main\\ai\\data\\'
+path = path + '/main/ai/data/'
 data_path = path + 'cnt3_playlists.json'
 mfl_col_path = path + 'mfl_col.pkl'
 model_path = path + 'model_ad_e30.h5'
 
-with open(mfl_col_path, 'rb') as f: # 사용 feature
-    features = pickle.load(f)
+def load_features():
+    with open(mfl_col_path, 'rb') as f: # 사용 feature
+        features = pickle.load(f)
+    return features
 
-data = pd.read_json(data_path) # 전체 플리 데이터
+
+def load_data():
+    return pd.read_json(data_path) # 전체 플리 데이터
+
 
 autoencoder = tf.keras.models.load_model(model_path)
 
 # 1. ply_id 넣으면 해당 행을 원핫 벡터로 변경
 def ply_to_onehot(select_ply_lst):
+    features = load_features()
+    data = load_data()
     # ply_id int형 변환
     select_ply_lst = list(map(int, select_ply_lst))
     # zero_mt 생성
@@ -67,12 +76,15 @@ def ply_to_onehot(select_ply_lst):
 
     return input_song, input_tag, input_onehot
 
+
 # 추천 결과 생성
 def remove_seen(seen, l):
     seen = set(seen)
     return [x for x in l if not (x in seen)]
 
+
 def recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, song_len=88146):
+    features = load_features()
     # predict
     predict_plist = autoencoder.predict(input_onehot)
 
@@ -90,6 +102,7 @@ def recommendation(input_song, input_tag, input_onehot, song_num, tag_num=5, son
     
     return rec_song, rec_tag
 
+
 # 유사도 적용
 def apply_sim(similarity, input_song, rec_song, song_num):
     sim_num = round(song_num * (similarity / 100))
@@ -97,3 +110,4 @@ def apply_sim(similarity, input_song, rec_song, song_num):
     sim_song = input_song[:sim_num]
     sim_rec_song = sim_song + rec_song
     return sim_rec_song
+

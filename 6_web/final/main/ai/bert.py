@@ -4,8 +4,7 @@ import numpy as np
 from numpy import dot
 from numpy.linalg import norm
 
-model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-# model = SentenceTransformer('sentence-transformers/xlm-r-100langs-bert-base-nli-stsb-mean-tokens')
+model = SentenceTransformer('sentence-transformers/xlm-r-100langs-bert-base-nli-stsb-mean-tokens')
 
 # title -> embedding 변환
 def encoding(new_title):
@@ -26,3 +25,4 @@ def get_sim_ply_id(ply_title_embedding, new_embedding, n=2):
     ply_title_embedding['cos_sim'] = ply_title_embedding.apply(lambda x: cos_sim(x['ply_title_emd'], new_embedding), axis=1)
     sim_ply_id = list(ply_title_embedding.sort_values(by='cos_sim', ascending=False)['ply_id'][:n])
     return sim_ply_id
+    

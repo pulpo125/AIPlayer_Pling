@@ -39,13 +39,23 @@
         </div>
     </div>
     <script>
+        function getOutputUrl() {
+            return "{% url 'output' %}";
+        }
+
         function redirectToOutput() {
             // 페이지 넘어가기
             window.location.href = "{% url 'output' %}";
         }
-        setTimeout(redirectToOutput, 21000); // 20초 후 실행
+
+        const selectPlyList = "{{ select_ply_lst }}";
+        const similarity = JSON.parse("{{ similarity }}");
+        const songNum = JSON.parse("{{ song_num }}");
+
+        console.log("selectPlyList: " + selectPlyList);
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="{% static 'js/3_loading.js' %}"></script>
 </body>
 </html>

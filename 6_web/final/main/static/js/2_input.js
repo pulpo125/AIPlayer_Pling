@@ -1,5 +1,5 @@
 // 로딩 중 구현
-$( document ).ready(function() {
+$(document).ready(function() {
     $(document).ajaxStart(function () {
         $('#loading').show(); // ajax 시작 -> 로딩바 표출
     });

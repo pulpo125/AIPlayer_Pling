@@ -26,7 +26,11 @@ SECRET_KEY = "django-insecure-=wp0e7xh^c0z9m=bb$ke)^pi7-n3=0a&^ekf&hct=kfto*p_-i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    ".ap-northeast-2.compute.amazonaws.com",
+    ".aiplayer.store",
+    "172.31.6.180",
+]
 
 
 # Application definition
@@ -79,9 +83,9 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "finaldb",
-        "USER": "root",
+        "USER": "django",
         "PASSWORD": "root1234",
-        "HOST": "127.0.0.1",
+        "HOST": "3.37.113.250",
         "PORT": "3306",
     }
 }

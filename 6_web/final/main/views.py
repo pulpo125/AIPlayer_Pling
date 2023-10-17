@@ -1,10 +1,14 @@
+import os
+os.environ['TF_ENABLE_ONEDNN_OPTS']='0'
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.utils import timezone
-from main.ai.autoencoder import ply_to_onehot, recommendation, apply_sim
 from main.models import PlyMeta, SongMeta, SongInPly, PlyTitleEmbedding, UserLog
 from main.ai.bert import encoding, get_sim_ply_id, emd_to_array
+from main.ai.autoencoder import ply_to_onehot, recommendation, apply_sim
 from main.ai.stableDiffusion import title2prompt, generateImg
 import pandas as pd
 import ast
@@ -18,6 +22,7 @@ def input(request):
 def similar_ply(request):
     try:
         new_title = request.GET.get('new_title')
+        print(f"similar_ply new_title: {new_title}")
 
         # 입력받은 타이틀을 임베딩으로 변환
         new_embedding = encoding(new_title)
@@ -49,13 +54,29 @@ def similar_ply(request):
     except Exception as e:
         # 예외가 발생한 경우 오류 응답을 반환합니다.
         return JsonResponse({"error": str(e)}, status=500)
+    
 
 def loading(request):
-    if request.method == 'POST':
-        # POST 요청으로 전송된 데이터 받기
-        select_ply_lst = request.POST.getlist('select_ply') 
-        similarity = request.POST.get('similarity', '')  # 슬라이더의 값을 가져옴
-        song_num = request.POST.get('song_num', '')      # 슬라이더의 값을 가져옴
+    print("loading start")
+    select_ply_lst = request.POST.getlist('select_ply') 
+    similarity = request.POST.get('similarity', '')  # 슬라이더의 값을 가져옴
+    song_num = request.POST.get('song_num', '')      # 슬라이더의 값을 가져옴
+
+    ply_lst = '//'.join([str(i) for i in select_ply_lst])
+
+    context = {"select_ply_lst": ply_lst, "similarity": similarity, "song_num": song_num}
+
+    return render(request, '3_loading.html', context=context) 
+
+
+def recAI(request):
+    try:
+        print("recAI start")
+        ply_lst = request.GET.get('select_ply_lst') 
+        select_ply_lst = ply_lst.split('//')
+        print(f"select_ply_lst: {select_ply_lst}, ply_lst: {ply_lst}")
+        similarity = request.GET.get('similarity')  # 슬라이더의 값을 가져옴
+        song_num = request.GET.get('song_num')      # 슬라이더의 값을 가져옴
         
         similarity = int(similarity)
         song_num = int(song_num)
@@ -66,21 +87,28 @@ def loading(request):
         # # 유사도 적용
         sim_rec_song  = apply_sim(similarity, input_song, rec_song, song_num)
 
-    # DB 저장
-    str_tag = ', '.join(rec_tag)
-    user_id = UserLog.objects.last().user_id
-    UserLog.objects.filter(user_id=user_id).update(user_song_id_lst = sim_rec_song, user_tag_lst = str_tag)
+        # DB 저장
+        str_tag = ', '.join(rec_tag)
+        user_id = UserLog.objects.last().user_id
+        UserLog.objects.filter(user_id=user_id).update(user_song_id_lst = sim_rec_song, user_tag_lst = str_tag)
 
-    # 이미지 생성
-    user_title = UserLog.objects.last().user_title
-    prompt_str = title2prompt(user_title)
-    generateImg(prompt_str)
-    
-    return render(request, '3_loading.html')
+        return JsonResponse({"success": True})
+    except Exception as e:
+        return JsonResponse({"error": e}, status=500)
+
+
+def imageAI(request):
+    try:
+        print("imageAI start");
+        user_title = UserLog.objects.last().user_title
+        prompt_str = title2prompt(user_title)
+        generateImg(prompt_str)
+        return JsonResponse({"success": True})
+    except Exception as e:
+        return JsonResponse({"error": e}, status=500)
 
 
 def output(request):
-
     # 추천 결과 가져오기
     user_meta = UserLog.objects.last()
     user_title = user_meta.user_title
@@ -112,3 +140,4 @@ def like_ply(request):
         success_value = False
 
     return JsonResponse({"success": success_value})
+

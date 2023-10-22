@@ -131,7 +131,7 @@ AI Player는 플레이리스트 콘텐츠 크리에이터들을 위한 플레이
 
 <br>
 
-## 4. 웹 서비스
+# 웹 서비스
 ![main](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/8096185f-4058-4f82-be0c-e5e1316d5ee2)
 ![input](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/44abfc64-0e6e-4f9d-b9fc-7457f296cb4b)
 ![loading](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/b01101c7-8f9b-493c-adb8-70573acc84ab)

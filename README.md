@@ -91,9 +91,8 @@ AI Player는 플레이리스트 콘텐츠 크리에이터들을 위한 플레이
 ## 2. 모델링
 ### 1. 자연어 처리
 **[폴더] 2_sBert**
-- 플레이리스트 제목은 해당 플레이리스트를 구성하는 곡과 태그에 전체적인 분위기를 담고 있습니다. 때문에, 사용자가 플레이리스트 제목을 입력하면 sBert를 사용하여 변환한 임베딩을 저희 멜론 플레이리스트 제목 임베딩 데이터와 비교하여 코사인 유사도가 높은 Top 3를 사용자들에게 제공합니다. 이 중 사용자가 원하는 플레이리스트를 선택하게 되고 선택된 플레이리스트를 오토인코더의 인풋값으로 주어 추천을 진행하게 됩니다. 
-<br>
-플레이리스트 제목이 전체적인 분위기를 담고 있다는 데이터의 특징을 활용하여 자연어 처리를 통한 추천 알고리즘의 인풋값을 선정하는 아이디어를 생각했습니다.
+- 플레이리스트 제목은 해당 플레이리스트를 구성하는 곡과 태그에 전체적인 분위기를 담고 있습니다. 때문에, 사용자가 플레이리스트 제목을 입력하면 sBert를 사용하여 변환한 임베딩을 저희 멜론 플레이리스트 제목 임베딩 데이터와 비교하여 코사인 유사도가 높은 Top 3를 사용자들에게 제공합니다. 이 중 사용자가 원하는 플레이리스트를 선택하게 되고 선택된 플레이리스트를 오토인코더의 인풋값으로 주어 추천을 진행하게 됩니다.
+- 플레이리스트 제목이 전체적인 분위기를 담고 있다는 데이터의 특징을 활용하여 자연어 처리를 통한 추천 알고리즘의 인풋값을 선정하는 아이디어를 생각했습니다.
 
 ### 2. 추천 알고리즘
 **[폴더] 3_autoEncoder**
@@ -133,9 +132,7 @@ AI Player는 플레이리스트 콘텐츠 크리에이터들을 위한 플레이
 <br>
 
 ## 4. 웹 서비스
-<div align=center>
- ![main](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/8096185f-4058-4f82-be0c-e5e1316d5ee2)
- ![input](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/44abfc64-0e6e-4f9d-b9fc-7457f296cb4b)
- ![loading](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/b01101c7-8f9b-493c-adb8-70573acc84ab)
- ![output](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/56c5431d-817a-4a80-8e9d-117e5768da64)    
-</div>
+![main](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/8096185f-4058-4f82-be0c-e5e1316d5ee2)
+![input](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/44abfc64-0e6e-4f9d-b9fc-7457f296cb4b)
+![loading](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/b01101c7-8f9b-493c-adb8-70573acc84ab)
+![output](https://github.com/pulpo125/AIPlayer_Pling/assets/118874524/56c5431d-817a-4a80-8e9d-117e5768da64)  

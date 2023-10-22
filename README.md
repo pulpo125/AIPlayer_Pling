@@ -2,6 +2,16 @@
 
 <br>
 
+## 목차
+[1) 프로젝트 개요](#프로젝트-개요) <br>
+[2) 팀 구성](#팀-구성-(총-5명)) <br>
+[3) 프로젝트 일정](#프로젝트-일정) <br>
+[4) 개발 기술 스택](#개발-기술-스택) <br>
+[5) 프로젝트 과정 및 내용](#프로젝트-과정-및-내용) <br>
+[6) 웹 서비스](#웹-서비스) <br>
+
+<br>
+
 # 프로젝트 개요
 AI Player는 플레이리스트 콘텐츠 크리에이터들을 위한 플레이리스트 자동 생성 서비스로, 사용자가 입력한 제목에 알맞은 플레이리스트 추천과 어울리는 썸네일 이미지를 자동으로 생성하는 서비스입니다.
 
@@ -11,19 +21,19 @@ AI Player는 플레이리스트 콘텐츠 크리에이터들을 위한 플레이
 팀 **Pling**은 각각 데이터 분석 및 모델링을 담당하고 서비스 개발은 크게 프론트엔드, 백엔드, DB로 나누어 담당하여 협업을 진행했습니다.
 
 ### 강하영: 팀장, 모델링 및 서비스 개발 총괄
-[브랜치] hy_modeling, hy_web
+[브랜치] [hy_modeling](https://github.com/pulpo125/AIPlayer_Pling/tree/hy_modeling), [hy_web](https://github.com/pulpo125/AIPlayer_Pling/tree/hy_web)
  
 ### 김영지: 데이터 분석/DB 및 프론트엔드
-[브랜치] yj, youngji
+[브랜치] [yj](https://github.com/pulpo125/AIPlayer_Pling/tree/yj), [youngji](https://github.com/pulpo125/AIPlayer_Pling/tree/youngji)
 
 ### 노예진: 이미지 생성 및 프론트엔드
-[브랜치] yejin
+[브랜치] [yejin](https://github.com/pulpo125/AIPlayer_Pling/tree/yejin)
 
 ###  유성재: 추천 알고리즘 및 백엔드
-[브랜치] jay
+[브랜치] [jay](https://github.com/pulpo125/AIPlayer_Pling/tree/jay)
 
 ### 윤미루: 자연어 처리 및 DB/AWS
-[브랜치] miro
+[브랜치] [miro](https://github.com/pulpo125/AIPlayer_Pling/tree/miro)
 
 <br>
 

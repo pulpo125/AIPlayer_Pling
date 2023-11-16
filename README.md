@@ -91,7 +91,7 @@
 <br>
 
 # 프로젝트 과정
-[<img src="https://img.shields.io/badge/Click Me-000000?style=flat-square&logo=github&logoColor=white"/>]() ▶️ 상세한 프로젝트 과정이 궁금하다면 방문해주세요.
+[<img src="https://img.shields.io/badge/Click Me-000000?style=flat-square&logo=github&logoColor=white"/>](https://github.com/pulpo125/AIPlayer_Pling/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B3%BC%EC%A0%95.md) ▶️ 상세한 프로젝트 과정이 궁금하다면 방문해주세요.
 
 <br>
 
